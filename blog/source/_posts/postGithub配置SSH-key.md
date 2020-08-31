@@ -1,11 +1,10 @@
 ---
-title: Github配置SSH key
+title: github 配置SSH key
 date: 2020-08-31 19:40:46
-tags:
-
+tags: -github
 ---
 
-## Github配置SSH Key
+Github配置SSH Key
 
 在本地生成ssh 密钥
 
