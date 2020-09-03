@@ -29,10 +29,11 @@ Enter same passphrase again:[Type passphrase again]
 cd ./.ssh
 ```
 打开id_rsa.pub文件，复制ssh-rsa开头的内容
-登录[Github](github.com),进入setting,ssh and gpg key，设置title，把复制的密钥粘贴到下面。
+登录[Github](github.com),进入setting,ssh and gpg key，设置title，把复制的密钥粘贴到下面。()[https://github.com/HuangSecretKey/HuangSecretKey.github.io/blob/hexo_source/blog/source/_posts/images/ssh%20key.png]
+
 <p align="center">
   <a>
-    <img src="images/ssh key.png" alt="harware-deployment" width="800" height="400">
+    <img src="https://github.com/HuangSecretKey/HuangSecretKey.github.io/blob/hexo_source/blog/source/_posts/images/ssh%20key.png" alt="ssh key" width="800" height="400">
   </a >
   <h3 align="center"></h3>  
 </p >
