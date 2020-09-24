@@ -8,12 +8,6 @@ Ubuntu终端常用的快捷键
 
 Ubuntu中的许多操作在终端（Terminal）中十分的快捷，记住一些快捷键的操作更得心应手。在Ubuntu中打开终端的快捷键是Ctrl+Alt+T。其他的一些常用的快捷键如下：
 
-
-
-
-
-
-
 ### 快捷键	功能
 
 Tab	自动补全
@@ -24,6 +18,9 @@ Ctrl+u	删除此处至开始的所有内容
 Ctrl+d	删除当前字符
 Ctrl+h	删除当前字符前一个字符
 Ctrl+w	删除此处到左边的单词
+
+## _____
+
 Ctrl+y	粘贴由Ctrl+u， Ctrl+d， Ctrl+w删除的单词
 Ctrl+l	相当于clear，即清屏
 Ctrl+r	查找历史命令
