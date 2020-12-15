@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content=""><title>matlab保存矩阵到txt或dat文件中 | 佟冬冬的博客</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/normalize.css/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/clipboard/dist/clipboard.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.css"><meta name="generator" content="Hexo 5.1.1"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">matlab保存矩阵到txt或dat文件中</h1><a id="logo" href="/.">佟冬冬的博客</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/tags/"><i class="fa fa-tags"> Tags</i></a><a href="/categories/"><i class="fa fa-tags"> Categories</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">matlab保存矩阵到txt或dat文件中</h1><div class="post-meta">2020-12-15</div><div class="post-content"><h1 id="将matlab中数据输出保存为txt或dat格式"><a href="#将matlab中数据输出保存为txt或dat格式" class="headerlink" title="将matlab中数据输出保存为txt或dat格式"></a><strong>将matlab中数据输出保存为txt或dat格式</strong></h1><p><strong>总结网上各大论坛，主要有三种方法。</strong></p>
+<h2 id="第一种方法：save（最简单基本的）"><a href="#第一种方法：save（最简单基本的）" class="headerlink" title="第一种方法：save（最简单基本的）"></a><strong>第一种方法：save（最简单基本的）</strong></h2><p>具体的命令是：用save *.txt -ascii x<br>x为变量<br>*.txt为文件名,该文件存储于当前工作目录下，再打开就可以打开后,数据有可能是以指数形式保存的.</p>
+<p>例子：</p>
+<p>a =[17 24 1 8 15;23 5 7 14 16 ;4 6 13 20 22 ;10 12 19 21 3 ;11 18 25 2 9 ]；<br>save afile.txt -ascii a<br>afile.txt打开之后，是这样的：<br>1.7000000e+001 2.4000000e+001 1.0000000e+000 8.0000000e+000 1.5000000e+001<br>2.3000000e+001 5.0000000e+000 7.0000000e+000 1.4000000e+001 1.6000000e+001<br>4.0000000e+000 6.0000000e+000 1.3000000e+001 2.0000000e+001 2.2000000e+001<br>1.0000000e+001 1.2000000e+001 1.9000000e+001 2.1000000e+001 3.0000000e+000<br>1.1000000e+001 1.8000000e+001 2.5000000e+001 2.0000000e+000 9.0000000e+000</p>
+<h2 id="第二种方法：dlmwrite"><a href="#第二种方法：dlmwrite" class="headerlink" title="第二种方法：dlmwrite"></a><strong>第二种方法：dlmwrite</strong></h2><p>dlmwrite(‘a.txt’,a,’precision’,’%10.0f’)</p>
+<p>或者是dlmwrite(‘a.txt’,a,’delimiter’, ‘\t’)</p>
+<p>对于只有一行或者一列的数据，很适用，但是多行的，就乱了</p>
+<p>网上有很多这一类似的问题，但是都不是很理想</p>
+<h2 id="第三种方法：fopen-fprintf"><a href="#第三种方法：fopen-fprintf" class="headerlink" title="第三种方法：fopen+fprintf"></a><strong>第三种方法：fopen+fprintf</strong></h2><p>下面主要介绍这种方法，可以解决以上问题：用fprintf命令：以上面的例子为例：</p>
+<h3 id="第一种情况："><a href="#第一种情况：" class="headerlink" title="第一种情况："></a><strong>第一种情况：</strong></h3><p>&gt;&gt; a=[17 24 1 8 15;23 5 7 14 16 ;4 6 13 20 22 ;10 12 19 21 3 ;11 1825 2 9 ];<br>&gt;&gt; fid = fopen(‘b.txt’,’wt’);<br>fprintf(fid,’%g\n’,a);       # \n 换行<br>fclose(fid);</p>
+<p>然后用写字板打开b.txt，内容如下：为列向量</p>
+<p>17<br>23<br>4<br>10<br>11<br>24<br>5<br>6<br>12<br>18<br>1<br>7<br>13<br>19<br>25<br>8<br>14<br>20<br>21<br>2<br>15<br>16<br>22<br>3<br>9</p>
+<h3 id="第二种情况："><a href="#第二种情况：" class="headerlink" title="第二种情况："></a><strong>第二种情况：</strong></h3><p>对上面的命令做一下改动：# \n 换行改为\t，table键</p>
+<p>&gt;&gt; fid = fopen(‘b.txt’,’w’);<br>fprintf(fid,’%g\t’,a);<br>fclose(fid);</p>
+<p>然后用写字板打开b.txt，内容如下：为行向量：</p>
+<p>17 23 4 10 11 24 5 6 12 18 1 7 13 19 25 8 14 20 21 2 15 16 22 3 9 </p>
+<h3 id="第三种情况："><a href="#第三种情况：" class="headerlink" title="第三种情况："></a><strong>第三种情况：</strong></h3><p>综合上面的两个结果，我们编写以下命令：</p>
+<p>fid=fopen(‘b.txt’,’wt’);%写入文件路径<br>[m,n]=size(a);<br> for i=1:1:m<br>    for j=1:1:n<br>       if j==n<br>         fprintf(fid,’%g\n’,a(i,j));<br>      else<br>        fprintf(fid,’%g\t’,a(i,j));<br>       end<br>    end<br>end<br>fclose(fid);</p>
+<p>然后用写字板打开b.txt，内容如下：矩阵</p>
+<p>17 24 1 8 15<br>23 5 7 14 16<br>4 6 13 20 22<br>10 12 19 21 3<br>11 18 25 2 9</p>
+<p><strong>说明：以上操作都是在当前的工作目录下完成！下面给出最一般的模型，大家可以试着自己操作,如果需要dat格式，直接把txt换为dat就可以</strong></p>
+<p>fid=fopen(‘C:\Documents and Settings\cleantotal.ped’,’wt’);%写入文件路径<br>matrix=input_mattrix                        %input_matrix为待输出矩阵<br>[m,n]=size(matrix);<br> for i=1:1:m<br>   for j=1:1:n<br>      if j==n<br>        fprintf(fid,’%g\n’,matrix(i,j));<br>     else<br>       fprintf(fid,’%g\t’,matrix(i,j));<br>      end<br>   end<br>end<br>fclose(fid);</p>
+<p>×××××××××××××××××××××××××××××××××××××××××××××××××××××××××</p>
+<p>下面附了具体的matlab的fopen和fprintf函数具体解释，当然help一下是可以知道的，只是为了方便大家</p>
+<p>matlab中fopen函数在指定文件打开的实例如下：</p>
+<p>*1)“fopen”打开文件，赋予文件代号。<br>    语法1：FID= FOPEN（filename,permission）<br>用指定的方式打开文件<br>FID=+N(N是正整数)：表示文件打开成功，文件代号是N.<br>FID=-1            : 表示文件打开不成功。<br>FID在此次文件关闭前总是有效的。<br>如以读方式打开，matlab首先搜索工作目录，其次搜索matlab的其他目录，“permission”是打开方式参数。<br>打开方式参数由以下字符串确定：<br>r             读出<br>w             写入（文件若不存在，自动创建）<br>a             后续写入（文件若不存在，自动创建）<br>r+            读出和写入（文件应已存在）<br>w+            重新刷新写入，（文件若不存在，自动创建）<br>a+            后续写入（文件若不存在，自动创建））<br>w             重新写入，但不自动刷新<br>a             后续写入，但不自动刷新<br>文件的存储格式：文件打开的默认方式是：二进制。以文本方式打开，可以在方式参<br>数“permission”中加入“t”文件将，如“rt”，“wt+”</p>
+<p>matlab中fprintf函数的具体使用方法实例如下：</p>
+<p>fprintf函数可以将数据按指定格式写入到文本文件中。其调用格式为：</p>
+<p>数据的格式化输出：fprintf(fid, format, variables)</p>
+<p>  按指定的格式将变量的值输出到屏幕或指定文件</p>
+<p>  fid为文件句柄，若缺省，则输出到屏幕</p>
+<p>​    1 for standard output (the screen) or 2 for standarderror. If FID is omitted, output goes to the screen.</p>
+<p>  format用来指定数据输出时采用的格式</p>
+<p>​    %d 整数</p>
+<p>​    %e 实数：科学计算法形式</p>
+<p>​    %f 实数：小数形式</p>
+<p>​    %g 由系统自动选取上述两种格式之一</p>
+<p>​    %s 输出字符串</p>
+<p>fprintf（fid，format，A）<br>说明：fid为文件句柄，指定要写入数据的文件，format是用来控制所写数据格式的格式符，与fscanf函数相同，A是用来存放数据的矩阵。<br>例6.9 创建一个字符矩阵并存入磁盘，再读出赋值给另一个矩阵。<br>&gt;&gt; a=’string’;<br>&gt;&gt; fid=fopen(‘d:\char1.txt’,’w’);<br>&gt;&gt; fprintf(fid,’%s’,a);<br>&gt;&gt; fclose(fid);<br>&gt;&gt; fid1=fopen(‘d:\char1.txt’,’rt’);<br>&gt;&gt; fid1=fopen(‘d:\char1.txt’,’rt’);<br>&gt;&gt; b=fscanf(fid1,’%s’)<br>b =<br>string</p>
+<p>matlab读txt文件</p>
+<p>fid=fopen(‘fx.txt’,’r’);<br>%得到文件号<br>[f,count]=fscanf(fid,’%f %f’,[12,90]);<br>%把文件号1的数据读到f中。其中f是[12 90]的矩阵<br>%这里’%f %f’表示读取数据的形势，他是按原始数据型读出<br>fclose(fid);<br>%关闭文件<br>另外有的txt文件还可以用load来打开<br>其语句为<br>f=load(‘fx.txt)</p>
+<p>字符串操作函数</p>
+<p>\1.        函数eval可以用来执行用字符串表示的表达式</p>
+<p>\2.        函数deblank可以去掉字符串末尾的所有空格</p>
+<p>\3.        函数findstr可以用来在长字符串中查找一个短的字符串，并返回相应的位置</p>
+<p>\4.        函数isstr可以用来判断变量是否为字符串</p>
+<p>\5.        函数isletter可以用来判断字符串中各个元素是否为字母</p>
+<p>\6.        函数isspace可以用来判断字符串元素是否为空格符</p>
+<p>\7.        函数lower和upper可以把字符串中的字母转为小写格式和大写格式</p>
+<p>\8.        函数strcat可以把多个字符串在水平方向上依次连接起来</p>
+<p>\9.        函数strvcat可以把多个字符串按竖直方向连接起来</p>
+<p>\10.     函数strcmp可以用来进行字符串的比较，返回1或0</p>
+<p>\11.     函数strcmpi可以用来忽略英文字母的大小写方式比较字符串</p>
+<p>\12.     函数strncmp可以用来比较字符串前N个字符是否相同</p>
+<p>\13.     函数strjust可以用来调整字符串矩阵的对齐方式</p>
+<p>\14.     函数strmatch可以用来寻找和目标字符串匹配的行</p>
+<p>\15.     函数strrep可以实现字符串的查找和替代功能</p>
+<p>\16.     函数strtok可以找出字符串第一个空格符前的字符串</p>
+<p>\17.     函数texlabel可以把字符串转换成tex软件的格式</p>
+<p>\18.     不同进制间的转换，bin2hex，bin2dec（‘字符串’）；dec2hex（数）=字符串；即十进制数不为字符串，      其它进制为字符串</p>
+<p>\19.     函数bitget可以用来获取二进制的数位   C=bitget（A，bit），A为一个无符号整形数据</p>
+<p>\20.     函数bitset可以用来设定某个二进制数位的值     C=bitset（A，bit） 指定数位的数值取反</p>
+<p>​                                                 C=bitset（A，bit，V）指定数位的数值被V替换</p>
+<p>\21.     函数bitand，bitor和bitxor可以用来进行‘与’，‘或’，‘抑或’数位操作</p>
+</div><div class="tags"></div><div class="post-nav"><a class="next" href="/2020/12/15/matlab%E6%80%BB%E7%BB%93/">matlab总结</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://yoursite.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/matlab/" style="font-size: 15px;">-matlab</a> <a href="/tags/github/" style="font-size: 15px;">-github</a> <a href="/tags/Ubuntu/" style="font-size: 15px;">-Ubuntu</a> <a href="/tags/%E8%AE%BA%E6%96%87%E6%80%BB%E7%BB%93/" style="font-size: 15px;">-论文总结</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/12/15/matlab%E4%BF%9D%E5%AD%98%E7%9F%A9%E9%98%B5%E5%88%B0txt%E6%88%96dat%E6%96%87%E4%BB%B6%E4%B8%AD/">matlab保存矩阵到txt或dat文件中</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/15/matlab%E6%80%BB%E7%BB%93/">matlab总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/15/%E4%B8%80%E7%AF%87%E7%A7%91%E6%8A%80%E8%AE%BA%E6%96%87%E5%BA%94%E8%AF%A5%E5%85%B7%E6%9C%89%E7%89%B9%E7%82%B9/">一篇科技论文应该具有特点</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/31/ubuntu%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%80%BB%E7%BB%93/">ubuntu常用快捷键总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/31/postGithub%E9%85%8D%E7%BD%AESSH-key/">github 配置SSH key</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2020 <a href="/." rel="nofollow">佟冬冬的博客.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js" successtext="Copy Successed!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"live2d-widget-model-wanko"},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body></html>
