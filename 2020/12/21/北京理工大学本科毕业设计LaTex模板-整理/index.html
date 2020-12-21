@@ -1,0 +1,261 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content=""><title>北京理工大学本科毕业设计LaTex模板(整理) | 佟冬冬的博客</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/normalize.css/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/clipboard/dist/clipboard.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.css"><meta name="generator" content="Hexo 5.1.1"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">北京理工大学本科毕业设计LaTex模板(整理)</h1><a id="logo" href="/.">佟冬冬的博客</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/tags/"><i class="fa fa-tags"> Tags</i></a><a href="/categories/"><i class="fa fa-tags"> Categories</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">北京理工大学本科毕业设计LaTex模板(整理)</h1><div class="post-meta">2020-12-21</div><div class="post-content"><h2 id="Latex毕设模板教程（整理）"><a href="#Latex毕设模板教程（整理）" class="headerlink" title="Latex毕设模板教程（整理）"></a>Latex毕设模板教程（整理）</h2><h3 id="教程目录"><a href="#教程目录" class="headerlink" title="教程目录"></a>教程目录</h3><p>1.<a href="#1.LaTex%E7%9A%84%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85">LaTex的下载与安装</a></p>
+<p>2.<a href="#2.LaTex%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D">LaTex基本介绍</a></p>
+<p>3<a href="#%E4%B8%8B%E8%BD%BD%E5%92%8C%E4%BD%BF%E7%94%A8BIThesis">模板的下载与使用</a></p>
+<p>4.<a href="#%E6%A0%BC%E5%BC%8F%E8%BD%AC%E5%8C%96">格式转化</a></p>
+<h3 id="1-LaTex的下载与安装"><a href="#1-LaTex的下载与安装" class="headerlink" title="1.LaTex的下载与安装"></a>1.LaTex的下载与安装</h3><h4 id="准备工作-安装latex环境，包括latex发行版以及latex编辑器。"><a href="#准备工作-安装latex环境，包括latex发行版以及latex编辑器。" class="headerlink" title="准备工作-安装latex环境，包括latex发行版以及latex编辑器。"></a>准备工作-安装latex环境，包括latex发行版以及latex编辑器。</h4><p>下载合适的latex的发行版，安装不同系统，从官网下载。</p>
+<p align="center">
+<a>
+  <img src="images/LaTex/1.png" alt="LaTex下载网址" >
+</a >
+<h6 align="center">LaTex下载网址</h6>  
+</p >
+
+<p>北京理工大学校园网镜像资源网站离线安装</p>
+<p>打开镜像资源网，选择需要的版本下载</p>
+<p><a target="_blank" rel="noopener" href="https://mirrors.bit.edu.cn/CTAN/systems/texlive/Images/">https://mirrors.bit.edu.cn/CTAN/systems/texlive/Images/</a></p>
+<p align="center">
+<a>
+  <img src="images/LaTex/2.png" alt="北理工镜像资源网">
+</a >
+<h6 align="center">北理工镜像资源网</h6>  
+</p >
+
+<p>ubuntu为例，</p>
+<p><code>sudo apt-get install textlive</code></p>
+<h4 id="确认安装"><a href="#确认安装" class="headerlink" title="确认安装"></a>确认安装</h4><p>打开终端</p>
+<p><code>xelatex --version</code></p>
+<p align="center">
+<a>
+  <img src="images/LaTex/4.png" alt="xelatex版本">
+</a >
+<h6 align="center">xelatex版本</h6>  
+</p >
+
+<p><code>biber --version</code></p>
+<p align="center">
+<a>
+  <img src="images/LaTex/5.png" alt="biber版本">
+</a >
+<h6 align="center">biber版本</h6>  
+</p >
+
+<h4 id="选择LaTex编辑器"><a href="#选择LaTex编辑器" class="headerlink" title="选择LaTex编辑器"></a>选择LaTex编辑器</h4><p>vscode texstudio texpad</p>
+<p> 在这里主要介绍vscode配合LaTex Workshop插件完成LaTex编辑。</p>
+<h5 id="下载安装vscode-studio-code-code-editing-Redefined"><a href="#下载安装vscode-studio-code-code-editing-Redefined" class="headerlink" title="下载安装vscode studio code -code editing.Redefined"></a>下载安装vscode studio code -code editing.Redefined</h5><p><a target="_blank" rel="noopener" href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></p>
+<p align="center">
+<a>
+  <img src="images/LaTex/6.png" alt="vscode官网下载安装">
+</a >
+<h6 align="center">vscode官网下载安装</h6>  
+</p >
+
+<h5 id="安装完vscode后，需要安装LaTex-Workshop插件"><a href="#安装完vscode后，需要安装LaTex-Workshop插件" class="headerlink" title="安装完vscode后，需要安装LaTex Workshop插件"></a>安装完vscode后，需要安装LaTex Workshop插件</h5><p align="center">
+<a>
+  <img src="images/LaTex/7.png" alt="vscode下载安装LaTex workshop插件">
+</a >
+<h6 align="center">vscode下载安装LaTex workshop插件</h6>  
+</p >
+
+<p>使用vscode作为LaTex编辑器时，需要特别配置编译工具及编译工具链。对于包含目录、参考文献以及图片表格引用的LaTex文档，往往需要多个编译工具串联编译。</p>
+<h3 id="2-LaTex基本介绍"><a href="#2-LaTex基本介绍" class="headerlink" title="2.LaTex基本介绍"></a>2.LaTex基本介绍</h3><h4 id="编译设置"><a href="#编译设置" class="headerlink" title="编译设置"></a>编译设置</h4><p>LaTex模板需要我们用合适的工具进行编译，才能生成最终PDF文件<br>BIThesis的模板编译方式大同小异，我们都会使用xelatex、biber以及latexmk等工具来编译<br>编译BIThesis有两种方法，直接使用latexmk进行编译，只需要使用一次latexmk即可编译整个模板，自动识别中文环境与参考文献编译器，增量编译，推荐使用。<br>使用xelatex配合biber，全量编译，时间较长。</p>
+<h4 id="使用vscode配合latex-workshop，并使用latexmk进行编译"><a href="#使用vscode配合latex-workshop，并使用latexmk进行编译" class="headerlink" title="使用vscode配合latex workshop，并使用latexmk进行编译"></a>使用vscode配合latex workshop，并使用latexmk进行编译</h4><p>打开vscode，用ctrl+shift+p打开命令面板，输入setting.json打开配置文件</p>
+<p align="center">
+<a>
+  <img src="images/LaTex/8.png" alt="setting.json文件">
+</a >
+<h6 align="center">setting.json</h6>  
+</p >
+
+<p>在setting.json中添加如下内容定义latexmk这一工具</p>
+<p align="center">
+<a>
+  <img src="images/LaTex/9.png" alt="latex mk文件">
+</a >
+<h6 align="center">latex mk文件</h6>  
+</p >
+
+<p>再添加如下内容定义整个工具链</p>
+<p align="center">
+<a>
+  <img src="images/LaTex/10.png" alt="定义整个工具链">
+</a >
+<h6 align="center">定义整个工具链</h6>  
+</p >
+
+<p>保存设置后，在用ctrl+shift+p打开命令执行栏，搜索LaTex Workshop：Build with recipe.选择自己需要的recipe</p>
+<p align="center">
+<a>
+  <img src="images/LaTex/11.png" alt="搜索LaTex Workshop">
+</a >
+<h6 align="center">搜索LaTex Workshop</h6>  
+</p >
+
+<h4 id="新建LaTex文档"><a href="#新建LaTex文档" class="headerlink" title="新建LaTex文档"></a>新建LaTex文档</h4><p>快捷键ctrl + N 新建文档，点击右下角“纯文档”，在弹出的框选择latex，保存文档，在文档中输入以下文字，保存文档后，保存右上角的第二个按钮view latex pdf file，可以预览文档。</p>
+<p align="center">
+<a>
+  <img src="images/LaTex/13.png" alt="搜索LaTex Workshop">
+</a >
+<h6 align="center">搜索LaTex Workshop</h6>  
+</p >
+
+<p> 可以看到文档带有默认格式包括首行缩进，首字母大写等，模板中第一行代码声明了文档的类型，称为类class，class控制着文档的整体类型，在这以后，需要将文章的内容写在，\begin{document} 和 \end{document}之间。</p>
+<p>对文章内容修改以后,单击recipe，选择latemk，可以在状态栏看到相关状态信息，同时在文档文件夹生成pdf文件。</p>
+<h4 id="常用语法介绍"><a href="#常用语法介绍" class="headerlink" title="常用语法介绍"></a>常用语法介绍</h4><p>接下来需要给文档添加标题，作者和日期，将写在\begin{document}之前的内容称为序言，标题，作者和日期应该写在序言中，示例代码如下。</p>
+<p align="center">
+<a>
+  <img src="images/LaTex/14.png" alt="标题作者单位等">
+</a >
+<h6 align="center">标题作者单位等</h6>  
+</p >
+
+<p>注意需要在正文中使用\maketitle 命令，生成title信息。</p>
+<h4 id="文本格式化命令"><a href="#文本格式化命令" class="headerlink" title="文本格式化命令"></a>文本格式化命令</h4><p>简单的文本格式化命令<br>粗体：<br>斜体：<br>下滑线：<br>示例代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">\documentclass&#123;article&#125;</span><br><span class="line">\begin&#123;document&#125;</span><br><span class="line">some of the \textbf&#123;greatest&#125; discoveries in \underline&#123;science&#125; were made by \textbf&#123;\textit&#123;accident&#125;&#125;</span><br><span class="line">\end&#123;document&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>文本格式化命令是可以嵌套使用的</strong><br>在文件中添加图片,示例代码如下所示，由于LaTex不能独立管理图片，因此，需要引如package包管理， 引入graphics包管理图片，其中graphicspath命令指定了图片的文件路径，在引用图片的位置处，使用includegraphics插入图片即可，</p>
+<p align="center">
+<a>
+  <img src="images/LaTex/15.png" alt="使用graphics插入图片">
+</a >
+<h6 align="center">使用graphics插入图片</h6>  
+</p >
+
+<p>对插入的图片可以插入标题，标签和参考， 示例代码如下</p>
+<p align="center">
+<a>
+  <img src="images/LaTex/16.png" alt="标题标签和参考">
+</a >
+<h6 align="center">标题标签和参考</h6>  
+</p >
+
+<p>在引入图片时，需要将图片引入代码包含在figure 标签中，标题和标签内容使用caption和label 命令添加在图片名称之后，<br>在正文中，可以使用ref和pageref命令来引用图片的标题和所在页码。</p>
+<p>添加表格，示例代码如下，</p>
+<p align="center">
+<a>
+  <img src="images/LaTex/表17.png" alt="添加表格">
+</a >
+<h6 align="center">添加表格</h6>  
+</p >
+
+<p>利用\tabular 即可创建表格，需要事先指定元素数{ccc}，每个元素之间使用&amp;连接，使用双反斜杠\换行，<br>latex中表格快速生成网址</p>
+<p><code>https://www.tablesgenerator.com/</code></p>
+<p>创建一个无序号列表，使用itemizem命令包含列表部分，在每一项前加item即可。有序列表即将<br>itemize换成enumerate即可。<br>示例代码如下：</p>
+<p align="center">
+<a>
+  <img src="images/LaTex/无序表格.png" alt="无序列表">
+</a >
+<h6 align="center">无序列表</h6>  
+</p >
+
+<p align="center">
+<a>
+  <img src="images/LaTex/有序列表.png" alt="有序列表">
+</a >
+<h6 align="center">有序列表</h6>  
+</p >
+
+<p>添加数学公式，示例代码如下，示例中包含行内公式和独立公式，行内公式用$命令包含，<br>独立公式用equation命令，普通引用使用单equation即可，使用一对equation命令可以给公式编号。</p>
+<p align="center">
+<a>
+  <img src="images/LaTex/有序列表.png" alt="有序列表">
+</a >
+<h6 align="center">有序列表</h6>  
+</p >
+
+<p>使用abstract命令添加论文摘要，示例代码如下</p>
+<p align="center">
+<a>
+  <img src="images/LaTex/论文摘要.png" alt="论文摘要">
+</a >
+<h6 align="center">论文摘要</h6>  
+</p >
+
+<p><strong>使用两次换行将会另起一段</strong></p>
+<p>给文章添加章节，示例代码如下，LaTex的章节序号是自动添加的，可以使用section，subsection和subsubsection<br>等命令添加不同层次的章节。</p>
+<p align="center">
+<a>
+  <img src="images/LaTex/给文章添加章节.png" alt="给文章添加章节">
+</a >
+<h6 align="center">给文章添加章节</h6>  
+</p >
+
+<p>添加目录，示例代码如下，使用tablecontents命令，即可添加LaTex自动生成的目录。</p>
+<p align="center">
+<a>
+  <img src="images/LaTex/目录.png" alt="目录">
+</a >
+<h6 align="center">目录</h6>  
+</p >
+
+<p>有关LaTex的更多技巧，可访问网址，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.overleaf.com&#x2F;learn&#x2F;latex&#x2F;Main_Page</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-下载和使用BIThesis"><a href="#3-下载和使用BIThesis" class="headerlink" title="3.下载和使用BIThesis"></a>3.下载和使用BIThesis</h3><p>在github仓库可以下载模板</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;github.com&#x2F;spencerwooo&#x2F;BIThesis&#x2F;releases&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>以本科生模板为例，介绍模板的使用方法</p>
+<h4 id="文档结构"><a href="#文档结构" class="headerlink" title="文档结构"></a>文档结构</h4><p align = "justify">文档中各文件直接的关系如下图所示，main.tex是主文件，chapters文件夹包含整个毕业论文的摘要和正文的全部章节，
+abstract是论文的摘要，包含中文摘要与英文摘要，chapter_1是正文第一章，正式章节。misc文件夹包含有毕业论文模板中的封面，
+后置章节和参考文献，cover是毕业论文的封面。originality.tex是毕业论文的原创性声明，toc.tex是毕业论文的目录，一般情况无序更改，
+由LaTex自动生成，conclusion.tex是论文的结论，reference.tex是毕业论文的参考文献，appendix是毕业论文的附录，acknowledgements.tex是
+毕业论文的致谢。ref是参考文献BibTex的数据库，</p>
+
+<p align="center">
+<a>
+  <img src="images/LaTex/bithesis文档之间的依赖关系.png" alt="bithesis文档之间的依赖关系">
+</a >
+<h6 align="center">bithesis文档之间的依赖关系</h6>  
+</p >
+
+<h4 id="模块介绍"><a href="#模块介绍" class="headerlink" title="模块介绍"></a>模块介绍</h4><p>毕业设计论文分为多个模块，BIThesis将每个模块单独提取出来，生成单独的LaTex文件，使用main主文件统一引用，<br>方便进行分模块的修改，<br>开始，定义中英文标题，关系到封面的渲染以及以后各模块中的标题<br>中英文标题的定义在main.tex的第65到第67行。</p>
+<p align="center">
+<a>
+  <img src="images/LaTex/标题的定义.png" alt="标题的定义">
+</a >
+<h6 align="center">标题的定义</h6>  
+</p >
+
+<p>定义个人信息，将被渲染在毕业论文的封面。</p>
+<p align="center">
+<a>
+  <img src="images/LaTex/个人信息定义.png" alt="个人信息定义">
+</a >
+<h6 align="center">个人信息定义</h6>  
+</p >
+
+<p><strong>中英文摘要</strong></p>
+<p>模板摘要位于abstract.tex中，中文摘要位于abstract.tex的第41行到第48行，</p>
+<p align="center">
+<a>
+  <img src="images/LaTex/中文摘要.png" alt="中文摘要">
+</a >
+<h6 align="center">中文摘要</h6>  
+</p >
+
+<p>英文摘要位于abstract.tex的第71行到第76行，</p>
+<p align="center">
+<a>
+  <img src="images/LaTex/英文摘要.png" alt="英文摘要">
+</a >
+<h6 align="center">英文摘要</h6>  
+</p >
+
+<p><strong>正文</strong></p>
+<p>模板中在第一章节创建了相应的模板，可以模仿创建其他章节的tex文件，并在main.tex的<br>第199行中添加对应章节文件的相对路径引用。</p>
+<p align="center">
+<a>
+  <img src="images/LaTex/章节引用.png" alt="章节引用">
+</a >
+<h6 align="center">章节引用</h6>  
+</p >
+
+<p>之后可以在每个章节的独立tex文件中撰写每一章节的内容</p>
+<h4 id="后续模块"><a href="#后续模块" class="headerlink" title="后续模块"></a>后续模块</h4><p>结论，参考文献，附录和致谢模块。<br>不需要撰写参考文献模块，只需要撰写结论，附录和致谢模块，<br>这三个模块的撰写逻辑与前面正文章节的撰写逻辑是一致的。</p>
+<h4 id="参考文献管理"><a href="#参考文献管理" class="headerlink" title="参考文献管理"></a>参考文献管理</h4><p>需要将论文的bibtex引用粘贴到ref.bib中，引用格式如下</p>
+<p><code>正文，正文，正文\cite&#123;sss&#125;正文正文</code></p>
+<h3 id="4-格式转化"><a href="#4-格式转化" class="headerlink" title="4.格式转化"></a>4.格式转化</h3><h4 id="论文格式转换-利用pandoc进行格式转换"><a href="#论文格式转换-利用pandoc进行格式转换" class="headerlink" title="论文格式转换 利用pandoc进行格式转换"></a>论文格式转换 利用pandoc进行格式转换</h4><p>pandoc安装说明官方文档</p>
+<p><code>https://pandoc.org/installing.html</code></p>
+<p>windows上，可以直接在github的release页面，<br><code>https://github.com/jgm/pandoc/release/tag/2.9.2.1</code><br>下载windows的msi进行手动安装。</p>
+<p>完善word格式的模板文件</p>
+<h4 id="进行格式转换"><a href="#进行格式转换" class="headerlink" title="进行格式转换"></a>进行格式转换</h4><p> 直接转换<br> 利用word模板进行转换</p>
+</div><div class="tags"><a href="/tags/LaTex/"><i class="fa fa-tag"></i>-LaTex</a></div><div class="post-nav"><a class="next" href="/2020/12/15/matlab%E4%BF%9D%E5%AD%98%E7%9F%A9%E9%98%B5%E5%88%B0txt%E6%88%96dat%E6%96%87%E4%BB%B6%E4%B8%AD/">matlab保存矩阵到txt或dat文件中</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://yoursite.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/matlab/" style="font-size: 15px;">-matlab</a> <a href="/tags/github/" style="font-size: 15px;">-github</a> <a href="/tags/Ubuntu/" style="font-size: 15px;">-Ubuntu</a> <a href="/tags/%E8%AE%BA%E6%96%87%E6%80%BB%E7%BB%93/" style="font-size: 15px;">-论文总结</a> <a href="/tags/LaTex/" style="font-size: 15px;">-LaTex</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/12/21/%E5%8C%97%E4%BA%AC%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A6%E6%9C%AC%E7%A7%91%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1LaTex%E6%A8%A1%E6%9D%BF-%E6%95%B4%E7%90%86/">北京理工大学本科毕业设计LaTex模板(整理)</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/15/matlab%E4%BF%9D%E5%AD%98%E7%9F%A9%E9%98%B5%E5%88%B0txt%E6%88%96dat%E6%96%87%E4%BB%B6%E4%B8%AD/">matlab保存矩阵到txt或dat文件中</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/15/matlab%E6%80%BB%E7%BB%93/">matlab总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/15/%E4%B8%80%E7%AF%87%E7%A7%91%E6%8A%80%E8%AE%BA%E6%96%87%E5%BA%94%E8%AF%A5%E5%85%B7%E6%9C%89%E7%89%B9%E7%82%B9/">一篇科技论文应该具有特点</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/31/ubuntu%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%80%BB%E7%BB%93/">ubuntu常用快捷键总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/31/postGithub%E9%85%8D%E7%BD%AESSH-key/">github 配置SSH key</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2020 <a href="/." rel="nofollow">佟冬冬的博客.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js" successtext="Copy Successed!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"live2d-widget-model-wanko"},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body></html>

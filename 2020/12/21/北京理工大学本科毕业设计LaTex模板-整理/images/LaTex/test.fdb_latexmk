@@ -1,0 +1,22 @@
+# Fdb version 3
+["xdvipdfmx"] 1608513173 "d:/Backup/paper-reading-/help/images/LaTex/test.xdv" "d:/Backup/paper-reading-/help/images/LaTex/test.pdf" "d:/Backup/paper-reading-/help/images/LaTex/test" 1608513402
+  "d:/Backup/paper-reading-/help/images/LaTex/test.xdv" 1608513174 1268 22d4f666aa39c32caba72784e1063bc5 "xelatex"
+  (generated)
+  "d:/Backup/paper-reading-/help/images/LaTex/test.pdf"
+["xelatex"] 1608513172 "test.tex" "d:/Backup/paper-reading-/help/images/LaTex/test.xdv" "test" 1608513402
+  "d:/Backup/paper-reading-/help/images/LaTex/test.aux" 1608513174 8 a94a2480d3289e625eea47cd1b285758 ""
+  "f:/texlive/2020/texmf-dist/tex/latex/base/article.cls" 1608471398 20023 e427dd9e17e239bf926ef3aab67fe35e ""
+  "f:/texlive/2020/texmf-dist/tex/latex/base/size10.clo" 1608471398 8446 9874cccac5fee462272c582807dbbf56 ""
+  "f:/texlive/2020/texmf-dist/tex/latex/base/ts1cmr.fd" 1608471398 2431 b6cead9f069ed55f4fba0c637aa047b6 ""
+  "f:/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-xdvipdfmx.def" 1608471380 24122 2811f916663c7ee4dc89a3107086b073 ""
+  "f:/texlive/2020/texmf-dist/web2c/texmf.cnf" 1608471362 39451 60d7debd9ef8ece44cbe965493576c2d ""
+  "f:/texlive/2020/texmf-var/web2c/xetex/xelatex.fmt" 1608472780 4769660 05ad74e04d68ec4f1a4cee5875e3153d ""
+  "f:/texlive/2020/texmf.cnf" 1608472656 673 4ae7b2f49cee444c5343a45b5d0f169c ""
+  "test.aux" 1608513174 8 a94a2480d3289e625eea47cd1b285758 "xelatex"
+  "test.tex" 1608468054 155 50554717132984fd4a036f6267ac5838 ""
+  (generated)
+  "test.aux"
+  "test.xdv"
+  "d:/Backup/paper-reading-/help/images/LaTex/test.xdv"
+  "test.log"
+  "d:/Backup/paper-reading-/help/images/LaTex/test.log"
