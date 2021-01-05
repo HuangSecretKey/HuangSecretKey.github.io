@@ -8,15 +8,16 @@ tags: -LaTex
 
 ### 教程目录
 
-1.[LaTex的下载与安装](#1.LaTex的下载与安装)
+[LaTex的下载与安装](#1.LaTex的下载与安装)
 
-2.[LaTex基本介绍](#2.LaTex基本介绍)
+[LaTex基本介绍](#2.LaTex基本介绍)
 
-3[模板的下载与使用](#下载和使用BIThesis)
+[模板的下载与使用](#下载和使用BIThesis)
 
-4.[格式转化](#格式转化)
+[格式转化](#格式转化)
+<!-- more -->
 
-### 1.LaTex的下载与安装
+### LaTex的下载与安装
 
 #### 准备工作-安装latex环境，包括latex发行版以及latex编辑器。
 
@@ -26,7 +27,6 @@ tags: -LaTex
 <a>
   <img src="images/LaTex/1.png" alt="LaTex下载网址" >
 </a >
-<h6 align="center">LaTex下载网址</h6>  
 </p >
 
 北京理工大学校园网镜像资源网站离线安装
@@ -39,7 +39,6 @@ https://mirrors.bit.edu.cn/CTAN/systems/texlive/Images/
 <a>
   <img src="images/LaTex/2.png" alt="北理工镜像资源网">
 </a >
-<h6 align="center">北理工镜像资源网</h6>  
 </p >
 
 ubuntu为例，
@@ -56,7 +55,6 @@ ubuntu为例，
 <a>
   <img src="images/LaTex/4.png" alt="xelatex版本">
 </a >
-<h6 align="center">xelatex版本</h6>  
 </p >
 
 ```biber --version```
@@ -65,7 +63,6 @@ ubuntu为例，
 <a>
   <img src="images/LaTex/5.png" alt="biber版本">
 </a >
-<h6 align="center">biber版本</h6>  
 </p >
 
 #### 选择LaTex编辑器
@@ -82,7 +79,6 @@ https://code.visualstudio.com/
 <a>
   <img src="images/LaTex/6.png" alt="vscode官网下载安装">
 </a >
-<h6 align="center">vscode官网下载安装</h6>  
 </p >
 
 ##### 安装完vscode后，需要安装LaTex Workshop插件
@@ -91,12 +87,11 @@ https://code.visualstudio.com/
 <a>
   <img src="images/LaTex/7.png" alt="vscode下载安装LaTex workshop插件">
 </a >
-<h6 align="center">vscode下载安装LaTex workshop插件</h6>  
 </p >
 
 使用vscode作为LaTex编辑器时，需要特别配置编译工具及编译工具链。对于包含目录、参考文献以及图片表格引用的LaTex文档，往往需要多个编译工具串联编译。
 
-### 2.LaTex基本介绍
+### LaTex基本介绍
 
 #### 编译设置
 
@@ -113,7 +108,6 @@ BIThesis的模板编译方式大同小异，我们都会使用xelatex、biber以
 <a>
   <img src="images/LaTex/8.png" alt="setting.json文件">
 </a >
-<h6 align="center">setting.json</h6>  
 </p >
 
 在setting.json中添加如下内容定义latexmk这一工具
@@ -122,7 +116,6 @@ BIThesis的模板编译方式大同小异，我们都会使用xelatex、biber以
 <a>
   <img src="images/LaTex/9.png" alt="latex mk文件">
 </a >
-<h6 align="center">latex mk文件</h6>  
 </p >
 
 再添加如下内容定义整个工具链
@@ -131,7 +124,6 @@ BIThesis的模板编译方式大同小异，我们都会使用xelatex、biber以
 <a>
   <img src="images/LaTex/10.png" alt="定义整个工具链">
 </a >
-<h6 align="center">定义整个工具链</h6>  
 </p >
 
 保存设置后，在用ctrl+shift+p打开命令执行栏，搜索LaTex Workshop：Build with recipe.选择自己需要的recipe
@@ -140,7 +132,6 @@ BIThesis的模板编译方式大同小异，我们都会使用xelatex、biber以
 <a>
   <img src="images/LaTex/11.png" alt="搜索LaTex Workshop">
 </a >
-<h6 align="center">搜索LaTex Workshop</h6>  
 </p >
 
 #### 新建LaTex文档
@@ -151,7 +142,6 @@ BIThesis的模板编译方式大同小异，我们都会使用xelatex、biber以
 <a>
   <img src="images/LaTex/13.png" alt="搜索LaTex Workshop">
 </a >
-<h6 align="center">搜索LaTex Workshop</h6>  
 </p >
 
  可以看到文档带有默认格式包括首行缩进，首字母大写等，模板中第一行代码声明了文档的类型，称为类class，class控制着文档的整体类型，在这以后，需要将文章的内容写在，\begin{document} 和 \end{document}之间。
@@ -166,7 +156,6 @@ BIThesis的模板编译方式大同小异，我们都会使用xelatex、biber以
 <a>
   <img src="images/LaTex/14.png" alt="标题作者单位等">
 </a >
-<h6 align="center">标题作者单位等</h6>  
 </p >
 
 注意需要在正文中使用\maketitle 命令，生成title信息。
@@ -193,7 +182,6 @@ some of the \textbf{greatest} discoveries in \underline{science} were made by \t
 <a>
   <img src="images/LaTex/15.png" alt="使用graphics插入图片">
 </a >
-<h6 align="center">使用graphics插入图片</h6>  
 </p >
 
 对插入的图片可以插入标题，标签和参考， 示例代码如下
@@ -202,7 +190,6 @@ some of the \textbf{greatest} discoveries in \underline{science} were made by \t
 <a>
   <img src="images/LaTex/16.png" alt="标题标签和参考">
 </a >
-<h6 align="center">标题标签和参考</h6>  
 </p >
 
 在引入图片时，需要将图片引入代码包含在figure 标签中，标题和标签内容使用caption和label 命令添加在图片名称之后，
@@ -214,7 +201,6 @@ some of the \textbf{greatest} discoveries in \underline{science} were made by \t
 <a>
   <img src="images/LaTex/表17.png" alt="添加表格">
 </a >
-<h6 align="center">添加表格</h6>  
 </p >
 
 利用\tabular 即可创建表格，需要事先指定元素数{ccc}，每个元素之间使用&连接，使用双反斜杠\\换行，
@@ -230,14 +216,12 @@ itemize换成enumerate即可。
 <a>
   <img src="images/LaTex/无序表格.png" alt="无序列表">
 </a >
-<h6 align="center">无序列表</h6>  
 </p >
 
 <p align="center">
 <a>
   <img src="images/LaTex/有序列表.png" alt="有序列表">
 </a >
-<h6 align="center">有序列表</h6>  
 </p >
 
 添加数学公式，示例代码如下，示例中包含行内公式和独立公式，行内公式用$命令包含，
@@ -247,7 +231,6 @@ itemize换成enumerate即可。
 <a>
   <img src="images/LaTex/有序列表.png" alt="有序列表">
 </a >
-<h6 align="center">有序列表</h6>  
 </p >
 
 使用abstract命令添加论文摘要，示例代码如下
@@ -256,7 +239,6 @@ itemize换成enumerate即可。
 <a>
   <img src="images/LaTex/论文摘要.png" alt="论文摘要">
 </a >
-<h6 align="center">论文摘要</h6>  
 </p >
 
 **使用两次换行将会另起一段**
@@ -268,7 +250,6 @@ itemize换成enumerate即可。
 <a>
   <img src="images/LaTex/给文章添加章节.png" alt="给文章添加章节">
 </a >
-<h6 align="center">给文章添加章节</h6>  
 </p >
 
 添加目录，示例代码如下，使用tablecontents命令，即可添加LaTex自动生成的目录。
@@ -277,7 +258,6 @@ itemize换成enumerate即可。
 <a>
   <img src="images/LaTex/目录.png" alt="目录">
 </a >
-<h6 align="center">目录</h6>  
 </p >
 
 有关LaTex的更多技巧，可访问网址，
@@ -286,7 +266,7 @@ itemize换成enumerate即可。
 https://www.overleaf.com/learn/latex/Main_Page
 ```
 
-### 3.下载和使用BIThesis
+### 下载和使用BIThesis
 
 在github仓库可以下载模板
 
@@ -308,7 +288,6 @@ abstract是论文的摘要，包含中文摘要与英文摘要，chapter_1是正
 <a>
   <img src="images/LaTex/bithesis文档之间的依赖关系.png" alt="bithesis文档之间的依赖关系">
 </a >
-<h6 align="center">bithesis文档之间的依赖关系</h6>  
 </p >
 
 #### 模块介绍
@@ -322,7 +301,6 @@ abstract是论文的摘要，包含中文摘要与英文摘要，chapter_1是正
 <a>
   <img src="images/LaTex/标题的定义.png" alt="标题的定义">
 </a >
-<h6 align="center">标题的定义</h6>  
 </p >
 
 定义个人信息，将被渲染在毕业论文的封面。
@@ -331,7 +309,6 @@ abstract是论文的摘要，包含中文摘要与英文摘要，chapter_1是正
 <a>
   <img src="images/LaTex/个人信息定义.png" alt="个人信息定义">
 </a >
-<h6 align="center">个人信息定义</h6>  
 </p >
 
 **中英文摘要**
@@ -342,7 +319,6 @@ abstract是论文的摘要，包含中文摘要与英文摘要，chapter_1是正
 <a>
   <img src="images/LaTex/中文摘要.png" alt="中文摘要">
 </a >
-<h6 align="center">中文摘要</h6>  
 </p >
 
 英文摘要位于abstract.tex的第71行到第76行，
@@ -351,7 +327,6 @@ abstract是论文的摘要，包含中文摘要与英文摘要，chapter_1是正
 <a>
   <img src="images/LaTex/英文摘要.png" alt="英文摘要">
 </a >
-<h6 align="center">英文摘要</h6>  
 </p >
 
 **正文**
@@ -363,7 +338,6 @@ abstract是论文的摘要，包含中文摘要与英文摘要，chapter_1是正
 <a>
   <img src="images/LaTex/章节引用.png" alt="章节引用">
 </a >
-<h6 align="center">章节引用</h6>  
 </p >
 
 之后可以在每个章节的独立tex文件中撰写每一章节的内容
@@ -380,7 +354,7 @@ abstract是论文的摘要，包含中文摘要与英文摘要，chapter_1是正
 
 ```正文，正文，正文\cite{sss}正文正文```
 
-### 4.格式转化
+### 格式转化
 
 #### 论文格式转换 利用pandoc进行格式转换
 

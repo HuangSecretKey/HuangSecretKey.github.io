@@ -4,8 +4,8 @@
 
 # Site
 title: 佟冬冬的博客
-subtitle: ''
-description: ''
+subtitle: '秣马厉兵莫懈怠，重整行装踏征途'
+description: '凡是过往，皆为序章'
 keywords:
 author: 
 language: en
@@ -134,7 +134,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: maupassant
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
