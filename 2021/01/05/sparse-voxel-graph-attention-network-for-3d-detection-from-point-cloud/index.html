@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Authors:Qing dong He, Zhengning Wang*, Hao Zeng, Yi Zheng, Shuaicheng Liu, Bing ZengUniversity of electronic science and technology of chinaChengdu china 中国电子科技大学 Abstract点云的精确三维物体检测在自动驾驶领域已经成为重要的组成部分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sparse voxel-graph attention network for 3d detection from point cloud">
+<meta property="og:url" content="http://yoursite.com/2021/01/05/sparse-voxel-graph-attention-network-for-3d-detection-from-point-cloud/index.html">
+<meta property="og:site_name" content="佟冬冬的博客">
+<meta property="og:description" content="Authors:Qing dong He, Zhengning Wang*, Hao Zeng, Yi Zheng, Shuaicheng Liu, Bing ZengUniversity of electronic science and technology of chinaChengdu china 中国电子科技大学 Abstract点云的精确三维物体检测在自动驾驶领域已经成为重要的组成部分">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2021/01/05/sparse-voxel-graph-attention-network-for-3d-detection-from-point-cloud/image001.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/01/05/sparse-voxel-graph-attention-network-for-3d-detection-from-point-cloud/image002.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/01/05/sparse-voxel-graph-attention-network-for-3d-detection-from-point-cloud/image003.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/01/05/sparse-voxel-graph-attention-network-for-3d-detection-from-point-cloud/image004.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/01/05/sparse-voxel-graph-attention-network-for-3d-detection-from-point-cloud/image005.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/01/05/sparse-voxel-graph-attention-network-for-3d-detection-from-point-cloud/image006.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/01/05/sparse-voxel-graph-attention-network-for-3d-detection-from-point-cloud/image007.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/01/05/sparse-voxel-graph-attention-network-for-3d-detection-from-point-cloud/image008.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/01/05/sparse-voxel-graph-attention-network-for-3d-detection-from-point-cloud/image009.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/01/05/sparse-voxel-graph-attention-network-for-3d-detection-from-point-cloud/image010.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/01/05/sparse-voxel-graph-attention-network-for-3d-detection-from-point-cloud/image011.jpg">
+<meta property="article:published_time" content="2021-01-05T14:19:01.000Z">
+<meta property="article:modified_time" content="2021-01-05T14:30:21.151Z">
+<meta property="article:tag" content="-paper reading">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2021/01/05/sparse-voxel-graph-attention-network-for-3d-detection-from-point-cloud/image001.jpg">
+
+<link rel="canonical" href="http://yoursite.com/2021/01/05/sparse-voxel-graph-attention-network-for-3d-detection-from-point-cloud/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>sparse voxel-graph attention network for 3d detection from point cloud | 佟冬冬的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">佟冬冬的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">秣马厉兵莫懈怠，重整行装踏征途</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/05/sparse-voxel-graph-attention-network-for-3d-detection-from-point-cloud/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="凡是过往，皆为序章">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="佟冬冬的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          sparse voxel-graph attention network for 3d detection from point cloud
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-01-05 22:19:01 / Modified: 22:30:21" itemprop="dateCreated datePublished" datetime="2021-01-05T22:19:01+08:00">2021-01-05</time>
+            </span>
+
+          <span class="post-time">
+            &nbsp; | &nbsp;
+          <span class="post-meta-item-icon">
+            <i class="fa fa-calendar-o"></i>
+          </span>
+          <span class="post-meta-item-text">字数统计:</span>
+          <span class="post-count">1.7k(字)</span>
+          </span>
+
+          <span class="post-time">
+            &nbsp; | &nbsp;
+          <span class="post-meta-item-icon">
+          <i class="fa fa-calendar-o"></i>
+          </span>
+          <span class="post-meta-item-text">阅读时长≈</span>
+          <span class="post-count">6(分)</span>
+          </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="Authors"><a href="#Authors" class="headerlink" title="Authors:"></a><strong>Authors:</strong></h3><p>Qing dong He, Zhengning Wang*, Hao Zeng, Yi Zheng, Shuaicheng Liu, Bing Zeng<br>University of electronic science and technology of china<br>Chengdu china 中国电子科技大学</p>
+<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a><strong>Abstract</strong></h3><p>点云的精确三维物体检测在自动驾驶领域已经成为重要的组成部分。但是，基于volumetric的表示方法和投影的方法不能建立起局部点之间的关系。</p>
+<p>因此，我们提出Sparse voxel graph attention network（SVGANet），一个新的端到端的回归模块，实现comparable的raw的point cloud 的三维检测。</p>
+<p>特别地，SVGA-Net在每一个分离的3d 球形voxel中建立local complete graph，并且对所有个voxels建立全局的KNN graph。</p>
+<p>除此之外，我们提出一种的新奇的sparse to dense的回归模块，通过在不同水平上聚合特征图，提高3d box的检测精度。</p>
+<p><strong>！！！ 在KITTI上的检测benchmark 说明了扩展三维物体检测到graph representation的检测效率，并且达到了decent的检测准确率。。。</strong></p>
+<a id="more"></a>
+
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a><strong>Summary</strong></h3><p>文章的聚焦点有两个，一个是目前还没有人用graph net的方法来做3d detection，surprisingly**(<strong>**普通人写这个的话，估计会说，别人不做是因为没有价值，不行，！！！一切皆有可能，不要否定自己的想法）</strong></p>
+<p>第二个是pointset中还没有人利用local feature 的relationship，之前的方法也没有用过attention mechanism。</p>
+<p>因此，本文提出一种，sparse voxel-graph attention network，分为两个module，the first is voxel-graph network module，主要是用于提取point-wise的feature，与原有方法相比，所提的方法聚合了local和global的feature。The second module 是sparse to dense regression module，预测category和3d bounding box。</p>
+<p>Introduction 部分先是综述3d 目标检测的重要性，然后写目前的3d目标检测方法有几种，具体的优点和缺点是什么，然后用一段话概括上述方法与本文聚焦点的地方的不足，这样引出本文的创新之处。</p>
+<p><strong>有三个</strong></p>
+<p>\1.     <strong>We propose a new end-to-end trainable 3D object detection network from point clouds which uses graph representations without converting to other formats.</strong> 一句话概括了一下本文做了啥，本文提出一种端到端可训练的3d物体检测网络，其中，点云用graph表示，不用再转换为其他的形式。</p>
+<p>\2.     <strong>We design a voxel-graph network, which constructs the local complete graph within each spherical voxel and the global KNN graph through all voxels to learn the discriminative feature representation simultaneously.</strong> 介绍本文提出的方法的第一个module，创新点。</p>
+<p>\3.     <strong>We propose a novel 3D boxes estimation method that aggregates features at different scales to achieve higher 3D localization accuracy.</strong>  介绍本文提出的第二个module，但是没有出现sparse to dense 这个词，差评。</p>
+<p>\4.    <strong>Our proposed SVGA-Net achieves decent experimental results with the state-of-the-art method on the challenging KITTI 3D detection dataset.</strong>  介绍实验部分取得地成就。</p>
+<p><strong>注意</strong> 本文所提出的方法只能达到decent的水平，与最先进的方法相比。以后在论文中也要学会这种用词，虽然我们的结果没有提升，但是方法不一样，且结果已经与state of  the art 的方法达到了decent的水平，或者取得了comparable的结果。**</p>
+<h4 id="Related-Works"><a href="#Related-Works" class="headerlink" title="Related Works"></a><strong>Related Works</strong></h4><p>Projection-based methods for point clouds</p>
+<p>Volumetric methods for point clouds</p>
+<p>Pointnet-based methods for point clouds</p>
+<p>Graph-based methods for point clouds</p>
+<p>分别从三个方面综述目前三维目标检测的方法，然后最后是自己用的方法，这个方法很好，但是目前还没有人用在3d目标检测上，或者已经有人用在这上面了，但是还是有很多的不足。</p>
+<p>再次说明我们所提出方法的必要性和重要性。</p>
+<p>整篇文章的聚焦点是point set 的local feature relationship，并且引入了graph network 和attention机制，找到聚焦点后去找之前文章方法在此方面的不足，这样introduction部分就好写了。（pv-rcnn是建立了相互之间关系的，只是没有明确说)。</p>
+<h4 id="启示"><a href="#启示" class="headerlink" title="启示**:**"></a><strong>启示**</strong>:**</h4><p><strong>写文章的时候首先要明确自己要写什么，目的是什么，聚焦点在哪里，这并不是说自己用啥方法就直接平白的写出来，第一阶段第二阶段，而是要在思路和方法形成以后善于与其他的方法进行比较对比，然后得到自己方法去其他方法的本质不同，（找不到就硬找，最好是找到一些既学术水平，又不常见的那种具有延伸意义的英语单词，这样可以提升文章的逼格）</strong></p>
+<p><strong>在看文章题目， SVGA-Net,第一眼，看不懂，这是啥啊， sparse voxel-graph attention network for 3d object detection from point cloud。题目就是方法的凝练，然后用诸多形容词来表示，这样逼格瞬间提升，看不懂啊，又sparse、又 voxel加graph 还用了attention，瞬间感觉这篇文章不错，用了这么多的东西，让人一下就想去看看他究竟是做了什么。所以说一个好的题目是一篇文章成功的一半。</strong></p>
+<h3 id="Method"><a href="#Method" class="headerlink" title="Method"></a><strong>Method</strong></h3><p><img src="image001.jpg" alt="network structure"></p>
+<p>分为两个module写</p>
+<h4 id="Voxel-graph-network-architecture"><a href="#Voxel-graph-network-architecture" class="headerlink" title="Voxel-graph network architecture"></a><strong>Voxel-graph network architecture</strong></h4><p><strong>1.</strong>     <strong>Spherical voxel grouping</strong> </p>
+<p>点的维度是四维的，然后设置一个半径，得到不同的球形voxel。</p>
+<p><strong>2.</strong>     <strong>Local point-wise feature</strong></p>
+<p>通过一个mlp，得到一个point-wise的特征表示，上一步的voxel中，有多少个点就有多少个voxel，因此这一步的feature 也是point wise的。</p>
+<p><strong>3.</strong>     <strong>Local point-attention layer</strong></p>
+<p>将每个点的feature 聚合一下，用attention的方法，公式如下</p>
+<p><img src="image002.jpg"></p>
+<p>fj是指当前操作点的feature，Bm是全局的graph attention score，ajk是局部的graph attention score</p>
+<p><img src="image003.jpg"></p>
+<p><img src="image004.jpg"></p>
+<p><strong>4.</strong>     <strong>Global attention layer</strong></p>
+<p>上一步中，如果只有local complete graph的话，那就只考虑了局部特征，因此还需要利用全局信息。也就是上面公式中的Bm的求解。具体方法就是针对每一个voxel，计算其物理的中心，作为一个点，然后在通过一个mlp网络得到initial global 特征，利用knn graph 得到attention score。</p>
+<p><img src="image005.jpg"></p>
+<p><strong>5.</strong>     <strong>Voxel-graph features representation</strong> </p>
+<p>利用上述的local 和 global的信息，堆叠几个 point attention layers 后通过一个maxpool层，可以获得基于<strong>point-wised</strong> 的特征。</p>
+<h4 id="Sparse-to-dense-regression-module"><a href="#Sparse-to-dense-regression-module" class="headerlink" title="Sparse to dense regression module"></a><strong>Sparse to dense regression module</strong></h4><p>其实本部分没有特别创新的内容，就是结合了不同层级的特征，concatenate一下，最后再进行回归头和分类头的预测。</p>
+<p><img src="image006.jpg"></p>
+<h3 id="Loss-function"><a href="#Loss-function" class="headerlink" title="Loss function"></a><strong>Loss function</strong></h3><p><img src="image007.jpg"></p>
+<p><img src="image008.jpg"></p>
+<p>Loss 部分与其他文章完全一样，粘贴原文的内容到这来看了。</p>
+<h3 id="Results"><a href="#Results" class="headerlink" title="Results"></a><strong>Results</strong></h3><p><img src="image009.jpg"></p>
+<p><img src="image010.jpg"></p>
+<p><img src="image011.jpg"></p>
+<h3 id="启示："><a href="#启示：" class="headerlink" title="启示："></a><strong>启示：</strong></h3><p><strong>1.</strong>   <strong>整篇文章一看就是中国人写的，思路流程清晰，而且聚焦点很明确，是平时写论文和学习应该借鉴的一篇文章。</strong><br><strong>2.</strong>   <strong>文章最后的结果还是不错的，但是开头只说是decent的水平，令人怀疑，没有释放源码。</strong><br><strong>3.</strong>   <strong>多复现别人的论文，attention加graph的方法可以借鉴，</strong><br><strong>4.</strong>   <strong>如果本篇文章有源码的话，是不是可以将input由原来的四维的扩展一下？</strong></p>
+
+    </div>
+
+    
+    
+    
+    <div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #555;font-size:14px;">-------------------凡是过往 <i class="fa fa-heart"></i> 皆为序章-------------------</div>
+    
+</div>
+  
+    </div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/paper-reading/" rel="tag"># -paper reading</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/03/CNN%E4%B8%AD%E7%9A%84%E7%AD%89%E5%8F%98-equivariant-%E5%92%8C%E4%B8%8D%E5%8F%98-invariant/" rel="prev" title="CNN中的等变(equivariant)和不变(invariant)">
+      <i class="fa fa-chevron-left"></i> CNN中的等变(equivariant)和不变(invariant)
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Authors"><span class="nav-number">1.</span> <span class="nav-text">Authors:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Abstract"><span class="nav-number">2.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary"><span class="nav-number">3.</span> <span class="nav-text">Summary</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Related-Works"><span class="nav-number">3.1.</span> <span class="nav-text">Related Works</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%AF%E7%A4%BA"><span class="nav-number">3.2.</span> <span class="nav-text">启示**:**</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Method"><span class="nav-number">4.</span> <span class="nav-text">Method</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Voxel-graph-network-architecture"><span class="nav-number">4.1.</span> <span class="nav-text">Voxel-graph network architecture</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sparse-to-dense-regression-module"><span class="nav-number">4.2.</span> <span class="nav-text">Sparse to dense regression module</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Loss-function"><span class="nav-number">5.</span> <span class="nav-text">Loss function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Results"><span class="nav-number">6.</span> <span class="nav-text">Results</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E7%A4%BA%EF%BC%9A"><span class="nav-number">7.</span> <span class="nav-text">启示：</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description">凡是过往，皆为序章</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        <span>本站已运行<span id="showDays"></span></span>
+<script>
+  var seconds = 1000;
+  var minutes = seconds * 60;
+  var hours = minutes * 60;
+  var days = hours * 24;
+  var years = days * 365;
+  var birthDay = Date.UTC(2020,08,01,14,00,00); // 这里设置建站时间
+  setInterval(function() {
+    var today = new Date();
+    var todayYear = today.getFullYear();
+    var todayMonth = today.getMonth()+1;
+    var todayDate = today.getDate();
+    var todayHour = today.getHours();
+    var todayMinute = today.getMinutes();
+    var todaySecond = today.getSeconds();
+    var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+    var diff = now - birthDay;
+    var diffYears = Math.floor(diff/years);
+    var diffDays = Math.floor((diff/days)-diffYears*365);
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+      document.getElementById('showDays').innerHTML=""+diffYears+"年"+diffDays+"天"+diffHours+"小时"+diffMinutes+"分钟"+diffSeconds+"秒";
+  }, 1000);
+</script>
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+</div>
+
+<!--
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>-->
+
+<!-- 不蒜字统计 -->
+<div>
+	<i class="fa fa-user-md"></i>
+	<span id="busuanzi_container_site_uv">
+	  访问人数：<span id="busuanzi_value_site_uv"></span>
+	</span>&nbsp;|&nbsp;
+	
+	<i class="fa fa-eye"></i>
+	<span id="busuanzi_container_site_pv">
+	  总访问量：<span id="busuanzi_value_site_pv"></span>
+	</span>&nbsp;|&nbsp;
+	
+	<!-- 添加博客全站总字数统计-->
+	<i class="fa fa-pencil"></i>
+	<span class="post-count">博客全站共 11.6k 字</span>
+</div>
+	
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='1' zIndex='-1' count='240' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/three-waves.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+    <script defer src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"live2d-widget-model-wanko"},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
+</html>
