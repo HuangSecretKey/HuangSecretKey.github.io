@@ -14,12 +14,13 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-pace-theme-center-atom.min.css">
   <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="凡是过往，皆为序章">
@@ -142,10 +143,6 @@
     </header>
 
     
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
 
 
     <main class="main">
@@ -182,30 +179,51 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-01-05 22:19:01 / Modified: 22:30:21" itemprop="dateCreated datePublished" datetime="2021-01-05T22:19:01+08:00">2021-01-05</time>
+              <time title="Created: 2021-01-05 22:19:01" itemprop="dateCreated datePublished" datetime="2021-01-05T22:19:01+08:00">2021-01-05</time>
             </span>
-
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-01-06 22:30:58" itemprop="dateModified" datetime="2021-01-06T22:30:58+08:00">2021-01-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%B8%89%E7%BB%B4%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" itemprop="url" rel="index"><span itemprop="name">-三维目标检测</span></a>
+                </span>
+            </span>
           <span class="post-time">
-            &nbsp; | &nbsp;
-          <span class="post-meta-item-icon">
-            <i class="fa fa-calendar-o"></i>
-          </span>
-          <span class="post-meta-item-text">字数统计:</span>
-          <span class="post-count">1.7k(字)</span>
-          </span>
+  &nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+  <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">字数统计:</span>
+<span class="post-count">1.8k(字)</span>
+</span>
 
-          <span class="post-time">
-            &nbsp; | &nbsp;
-          <span class="post-meta-item-icon">
-          <i class="fa fa-calendar-o"></i>
-          </span>
-          <span class="post-meta-item-text">阅读时长≈</span>
-          <span class="post-count">6(分)</span>
-          </span>
+<span class="post-time">
+  &nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+<i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">阅读时长≈</span>
+<span class="post-count">6(分)</span>
+</span>
 
           
+            <span id="/2021/01/05/sparse-voxel-graph-attention-network-for-3d-detection-from-point-cloud/" class="post-meta-item leancloud_visitors" data-flag-title="sparse voxel-graph attention network for 3d detection from point cloud" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
 
         </div>
       </header>
@@ -216,12 +234,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="Authors"><a href="#Authors" class="headerlink" title="Authors:"></a><strong>Authors:</strong></h3><p>Qing dong He, Zhengning Wang*, Hao Zeng, Yi Zheng, Shuaicheng Liu, Bing Zeng<br>University of electronic science and technology of china<br>Chengdu china 中国电子科技大学</p>
-<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a><strong>Abstract</strong></h3><p>点云的精确三维物体检测在自动驾驶领域已经成为重要的组成部分。但是，基于volumetric的表示方法和投影的方法不能建立起局部点之间的关系。</p>
-<p>因此，我们提出Sparse voxel graph attention network（SVGANet），一个新的端到端的回归模块，实现comparable的raw的point cloud 的三维检测。</p>
-<p>特别地，SVGA-Net在每一个分离的3d 球形voxel中建立local complete graph，并且对所有个voxels建立全局的KNN graph。</p>
-<p>除此之外，我们提出一种的新奇的sparse to dense的回归模块，通过在不同水平上聚合特征图，提高3d box的检测精度。</p>
-<p><strong>！！！ 在KITTI上的检测benchmark 说明了扩展三维物体检测到graph representation的检测效率，并且达到了decent的检测准确率。。。</strong></p>
+          <p>本文提出一种端到端可训练的3d物体检测网络，其中，点云用graph表示，不用再转换为其他的形式。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/01/05/sparse-voxel-graph-attention-network-for-3d-detection-from-point-cloud/#more" rel="contents">
@@ -236,9 +249,6 @@
     
     
     
-    <div>
-  
-    </div>
       <footer class="post-footer">
         <div class="post-eof"></div>
       </footer>
@@ -282,28 +292,34 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-04 21:06:46" itemprop="dateModified" datetime="2021-01-04T21:06:46+08:00">2021-01-04</time>
+                <time title="Modified: 2021-01-06 22:31:33" itemprop="dateModified" datetime="2021-01-06T22:31:33+08:00">2021-01-06</time>
               </span>
-
           <span class="post-time">
-            &nbsp; | &nbsp;
-          <span class="post-meta-item-icon">
-            <i class="fa fa-calendar-o"></i>
-          </span>
-          <span class="post-meta-item-text">字数统计:</span>
-          <span class="post-count">862(字)</span>
-          </span>
+  &nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+  <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">字数统计:</span>
+<span class="post-count">872(字)</span>
+</span>
 
-          <span class="post-time">
-            &nbsp; | &nbsp;
-          <span class="post-meta-item-icon">
-          <i class="fa fa-calendar-o"></i>
-          </span>
-          <span class="post-meta-item-text">阅读时长≈</span>
-          <span class="post-count">2(分)</span>
-          </span>
+<span class="post-time">
+  &nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+<i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">阅读时长≈</span>
+<span class="post-count">3(分)</span>
+</span>
 
           
+            <span id="/2021/01/03/CNN%E4%B8%AD%E7%9A%84%E7%AD%89%E5%8F%98-equivariant-%E5%92%8C%E4%B8%8D%E5%8F%98-invariant/" class="post-meta-item leancloud_visitors" data-flag-title="CNN中的等变(equivariant)和不变(invariant)" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
 
         </div>
       </header>
@@ -314,9 +330,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="等变性equivariant"><a href="#等变性equivariant" class="headerlink" title="等变性equivariant"></a>等变性equivariant</h3><p>通俗解释： 对于一个函数，如果你对其输入施加的变换也会同样反应在输出上，那么这个函数就对该变换具有等变性。<br>更严谨些：<br>对于一个函数/特征f以及一个变换g， 如果我们有：</p>
-<p>f(g(x))=g(f(x))</p>
-<p>则称f对变换g有等变性。<br>举一个例子，假设我们的变换g是将图像向右平移一段距离，我们的函数f是检测一个人脸的位置（比如说输出坐标），f(g(x))就是先将图片像右移，接着我们在新图较之原图偏右的位置检测到人脸； g(f(x))则是我们先检测到人脸， 然后再将人脸往右移一点。这二者的输出是一样的，与我们施加变换的顺序无关。</p>
+          <p>CNN中的等变(equivariant)和不变(invariant)</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/01/03/CNN%E4%B8%AD%E7%9A%84%E7%AD%89%E5%8F%98-equivariant-%E5%92%8C%E4%B8%8D%E5%8F%98-invariant/#more" rel="contents">
@@ -331,9 +345,6 @@
     
     
     
-    <div>
-  
-    </div>
       <footer class="post-footer">
         <div class="post-eof"></div>
       </footer>
@@ -379,26 +390,32 @@
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2021-01-04 21:19:07" itemprop="dateModified" datetime="2021-01-04T21:19:07+08:00">2021-01-04</time>
               </span>
-
           <span class="post-time">
-            &nbsp; | &nbsp;
-          <span class="post-meta-item-icon">
-            <i class="fa fa-calendar-o"></i>
-          </span>
-          <span class="post-meta-item-text">字数统计:</span>
-          <span class="post-count">2k(字)</span>
-          </span>
+  &nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+  <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">字数统计:</span>
+<span class="post-count">2k(字)</span>
+</span>
 
-          <span class="post-time">
-            &nbsp; | &nbsp;
-          <span class="post-meta-item-icon">
-          <i class="fa fa-calendar-o"></i>
-          </span>
-          <span class="post-meta-item-text">阅读时长≈</span>
-          <span class="post-count">7(分)</span>
-          </span>
+<span class="post-time">
+  &nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+<i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">阅读时长≈</span>
+<span class="post-count">7(分)</span>
+</span>
 
           
+            <span id="/2020/12/21/%E5%8C%97%E4%BA%AC%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A6%E6%9C%AC%E7%A7%91%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1LaTex%E6%A8%A1%E6%9D%BF-%E6%95%B4%E7%90%86/" class="post-meta-item leancloud_visitors" data-flag-title="北京理工大学本科毕业设计LaTex模板(整理)" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
 
         </div>
       </header>
@@ -427,9 +444,6 @@
     
     
     
-    <div>
-  
-    </div>
       <footer class="post-footer">
         <div class="post-eof"></div>
       </footer>
@@ -475,26 +489,32 @@
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2021-01-04 21:35:59" itemprop="dateModified" datetime="2021-01-04T21:35:59+08:00">2021-01-04</time>
               </span>
-
           <span class="post-time">
-            &nbsp; | &nbsp;
-          <span class="post-meta-item-icon">
-            <i class="fa fa-calendar-o"></i>
-          </span>
-          <span class="post-meta-item-text">字数统计:</span>
-          <span class="post-count">1.9k(字)</span>
-          </span>
+  &nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+  <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">字数统计:</span>
+<span class="post-count">1.9k(字)</span>
+</span>
 
-          <span class="post-time">
-            &nbsp; | &nbsp;
-          <span class="post-meta-item-icon">
-          <i class="fa fa-calendar-o"></i>
-          </span>
-          <span class="post-meta-item-text">阅读时长≈</span>
-          <span class="post-count">7(分)</span>
-          </span>
+<span class="post-time">
+  &nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+<i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">阅读时长≈</span>
+<span class="post-count">7(分)</span>
+</span>
 
           
+            <span id="/2020/12/15/matlab%E4%BF%9D%E5%AD%98%E7%9F%A9%E9%98%B5%E5%88%B0txt%E6%88%96dat%E6%96%87%E4%BB%B6%E4%B8%AD/" class="post-meta-item leancloud_visitors" data-flag-title="matlab保存矩阵到txt或dat文件中" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
 
         </div>
       </header>
@@ -521,9 +541,6 @@
     
     
     
-    <div>
-  
-    </div>
       <footer class="post-footer">
         <div class="post-eof"></div>
       </footer>
@@ -569,26 +586,32 @@
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2021-01-04 21:35:20" itemprop="dateModified" datetime="2021-01-04T21:35:20+08:00">2021-01-04</time>
               </span>
-
           <span class="post-time">
-            &nbsp; | &nbsp;
-          <span class="post-meta-item-icon">
-            <i class="fa fa-calendar-o"></i>
-          </span>
-          <span class="post-meta-item-text">字数统计:</span>
-          <span class="post-count">284(字)</span>
-          </span>
+  &nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+  <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">字数统计:</span>
+<span class="post-count">284(字)</span>
+</span>
 
-          <span class="post-time">
-            &nbsp; | &nbsp;
-          <span class="post-meta-item-icon">
-          <i class="fa fa-calendar-o"></i>
-          </span>
-          <span class="post-meta-item-text">阅读时长≈</span>
-          <span class="post-count">1(分)</span>
-          </span>
+<span class="post-time">
+  &nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+<i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">阅读时长≈</span>
+<span class="post-count">1(分)</span>
+</span>
 
           
+            <span id="/2020/12/15/matlab%E6%80%BB%E7%BB%93/" class="post-meta-item leancloud_visitors" data-flag-title="matlab总结" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
 
         </div>
       </header>
@@ -614,9 +637,6 @@
     
     
     
-    <div>
-  
-    </div>
       <footer class="post-footer">
         <div class="post-eof"></div>
       </footer>
@@ -662,26 +682,32 @@
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2021-01-04 21:22:35" itemprop="dateModified" datetime="2021-01-04T21:22:35+08:00">2021-01-04</time>
               </span>
-
           <span class="post-time">
-            &nbsp; | &nbsp;
-          <span class="post-meta-item-icon">
-            <i class="fa fa-calendar-o"></i>
-          </span>
-          <span class="post-meta-item-text">字数统计:</span>
-          <span class="post-count">625(字)</span>
-          </span>
+  &nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+  <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">字数统计:</span>
+<span class="post-count">625(字)</span>
+</span>
 
-          <span class="post-time">
-            &nbsp; | &nbsp;
-          <span class="post-meta-item-icon">
-          <i class="fa fa-calendar-o"></i>
-          </span>
-          <span class="post-meta-item-text">阅读时长≈</span>
-          <span class="post-count">2(分)</span>
-          </span>
+<span class="post-time">
+  &nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+<i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">阅读时长≈</span>
+<span class="post-count">2(分)</span>
+</span>
 
           
+            <span id="/2020/12/15/%E4%B8%80%E7%AF%87%E7%A7%91%E6%8A%80%E8%AE%BA%E6%96%87%E5%BA%94%E8%AF%A5%E5%85%B7%E6%9C%89%E7%89%B9%E7%82%B9/" class="post-meta-item leancloud_visitors" data-flag-title="一篇科技论文应该具有特点" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
 
         </div>
       </header>
@@ -707,9 +733,6 @@
     
     
     
-    <div>
-  
-    </div>
       <footer class="post-footer">
         <div class="post-eof"></div>
       </footer>
@@ -755,26 +778,32 @@
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2021-01-04 21:20:19" itemprop="dateModified" datetime="2021-01-04T21:20:19+08:00">2021-01-04</time>
               </span>
-
           <span class="post-time">
-            &nbsp; | &nbsp;
-          <span class="post-meta-item-icon">
-            <i class="fa fa-calendar-o"></i>
-          </span>
-          <span class="post-meta-item-text">字数统计:</span>
-          <span class="post-count">3.8k(字)</span>
-          </span>
+  &nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+  <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">字数统计:</span>
+<span class="post-count">3.8k(字)</span>
+</span>
 
-          <span class="post-time">
-            &nbsp; | &nbsp;
-          <span class="post-meta-item-icon">
-          <i class="fa fa-calendar-o"></i>
-          </span>
-          <span class="post-meta-item-text">阅读时长≈</span>
-          <span class="post-count">14(分)</span>
-          </span>
+<span class="post-time">
+  &nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+<i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">阅读时长≈</span>
+<span class="post-count">14(分)</span>
+</span>
 
           
+            <span id="/2020/08/31/ubuntu%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%80%BB%E7%BB%93/" class="post-meta-item leancloud_visitors" data-flag-title="ubuntu常用快捷键总结" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
 
         </div>
       </header>
@@ -801,9 +830,6 @@
     
     
     
-    <div>
-  
-    </div>
       <footer class="post-footer">
         <div class="post-eof"></div>
       </footer>
@@ -849,26 +875,32 @@
                 <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 2021-01-04 21:34:50" itemprop="dateModified" datetime="2021-01-04T21:34:50+08:00">2021-01-04</time>
               </span>
-
           <span class="post-time">
-            &nbsp; | &nbsp;
-          <span class="post-meta-item-icon">
-            <i class="fa fa-calendar-o"></i>
-          </span>
-          <span class="post-meta-item-text">字数统计:</span>
-          <span class="post-count">358(字)</span>
-          </span>
+  &nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+  <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">字数统计:</span>
+<span class="post-count">358(字)</span>
+</span>
 
-          <span class="post-time">
-            &nbsp; | &nbsp;
-          <span class="post-meta-item-icon">
-          <i class="fa fa-calendar-o"></i>
-          </span>
-          <span class="post-meta-item-text">阅读时长≈</span>
-          <span class="post-count">1(分)</span>
-          </span>
+<span class="post-time">
+  &nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+<i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">阅读时长≈</span>
+<span class="post-count">1(分)</span>
+</span>
 
           
+            <span id="/2020/08/31/postGithub%E9%85%8D%E7%BD%AESSH-key/" class="post-meta-item leancloud_visitors" data-flag-title="github 配置SSH key" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
 
         </div>
       </header>
@@ -894,9 +926,6 @@
     
     
     
-    <div>
-  
-    </div>
       <footer class="post-footer">
         <div class="post-eof"></div>
       </footer>
@@ -975,10 +1004,16 @@
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -987,6 +1022,10 @@
 
 
       </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
 
     </div>
   </aside>
@@ -1000,34 +1039,7 @@
       <div class="footer-inner">
         
 
-        <span>本站已运行<span id="showDays"></span></span>
-<script>
-  var seconds = 1000;
-  var minutes = seconds * 60;
-  var hours = minutes * 60;
-  var days = hours * 24;
-  var years = days * 365;
-  var birthDay = Date.UTC(2020,08,01,14,00,00); // 这里设置建站时间
-  setInterval(function() {
-    var today = new Date();
-    var todayYear = today.getFullYear();
-    var todayMonth = today.getMonth()+1;
-    var todayDate = today.getDate();
-    var todayHour = today.getHours();
-    var todayMinute = today.getMinutes();
-    var todaySecond = today.getSeconds();
-    var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
-    var diff = now - birthDay;
-    var diffYears = Math.floor(diff/years);
-    var diffDays = Math.floor((diff/days)-diffYears*365);
-    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
-    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
-    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
-      document.getElementById('showDays').innerHTML=""+diffYears+"年"+diffDays+"天"+diffHours+"小时"+diffMinutes+"分钟"+diffSeconds+"秒";
-  }, 1000);
-</script>
-
-<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.ejs"></script>
 
 <div class="copyright">
   
@@ -1060,35 +1072,132 @@
 	<span class="post-count">博客全站共 11.6k 字</span>
 </div>
 	
+ 
 
-
+<span>本站已运行<span id="showDays"></span></span>
+<script>
+  var seconds = 1000;
+  var minutes = seconds * 60;
+  var hours = minutes * 60;
+  var days = hours * 24;
+  var years = days * 365;
+  var birthDay = Date.UTC(2019,08,01,14,00,00); // 这里设置建站时间
+  setInterval(function() {
+    var today = new Date();
+    var todayYear = today.getFullYear();
+    var todayMonth = today.getMonth()+1;
+    var todayDate = today.getDate();
+    var todayHour = today.getHours();
+    var todayMinute = today.getMinutes();
+    var todaySecond = today.getSeconds();
+    var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+    var diff = now - birthDay;
+    var diffYears = Math.floor(diff/years);
+    var diffDays = Math.floor((diff/days)-diffYears*365);
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+      document.getElementById('showDays').innerHTML=""+diffYears+"年"+diffDays+"天"+diffHours+"小时"+diffMinutes+"分钟"+diffSeconds+"秒";
+  }, 1000);
+</script>
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="Total Visitors">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="Total Views">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
 
 
 
 
 
 
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":null,"app_key":null,"server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
 
 
       </div>
@@ -1097,8 +1206,10 @@
 
   
   
-  <script color='255,255,255' opacity='1' zIndex='-1' count='120' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script color='125,125,125' opacity='1' zIndex='-1' count='120' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
@@ -1139,5 +1250,7 @@
 
   
 
+ <!-- 页面点击礼花效果 -->
+<script type="text/javascript" src="/js/firework.js"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"live2d-widget-model-wanko"},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
 </html>

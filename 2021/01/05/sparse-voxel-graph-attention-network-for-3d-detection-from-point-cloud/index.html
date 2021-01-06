@@ -14,20 +14,21 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-pace-theme-center-atom.min.css">
   <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Authors:Qing dong He, Zhengning Wang*, Hao Zeng, Yi Zheng, Shuaicheng Liu, Bing ZengUniversity of electronic science and technology of chinaChengdu china 中国电子科技大学 Abstract点云的精确三维物体检测在自动驾驶领域已经成为重要的组成部分">
+  <meta name="description" content="本文提出一种端到端可训练的3d物体检测网络，其中，点云用graph表示，不用再转换为其他的形式。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sparse voxel-graph attention network for 3d detection from point cloud">
 <meta property="og:url" content="http://yoursite.com/2021/01/05/sparse-voxel-graph-attention-network-for-3d-detection-from-point-cloud/index.html">
 <meta property="og:site_name" content="佟冬冬的博客">
-<meta property="og:description" content="Authors:Qing dong He, Zhengning Wang*, Hao Zeng, Yi Zheng, Shuaicheng Liu, Bing ZengUniversity of electronic science and technology of chinaChengdu china 中国电子科技大学 Abstract点云的精确三维物体检测在自动驾驶领域已经成为重要的组成部分">
+<meta property="og:description" content="本文提出一种端到端可训练的3d物体检测网络，其中，点云用graph表示，不用再转换为其他的形式。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2021/01/05/sparse-voxel-graph-attention-network-for-3d-detection-from-point-cloud/image001.jpg">
 <meta property="og:image" content="http://yoursite.com/2021/01/05/sparse-voxel-graph-attention-network-for-3d-detection-from-point-cloud/image002.jpg">
@@ -41,8 +42,9 @@
 <meta property="og:image" content="http://yoursite.com/2021/01/05/sparse-voxel-graph-attention-network-for-3d-detection-from-point-cloud/image010.jpg">
 <meta property="og:image" content="http://yoursite.com/2021/01/05/sparse-voxel-graph-attention-network-for-3d-detection-from-point-cloud/image011.jpg">
 <meta property="article:published_time" content="2021-01-05T14:19:01.000Z">
-<meta property="article:modified_time" content="2021-01-05T14:30:21.151Z">
+<meta property="article:modified_time" content="2021-01-06T14:30:58.504Z">
 <meta property="article:tag" content="-paper reading">
+<meta property="article:tag" content="-3d detection">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/2021/01/05/sparse-voxel-graph-attention-network-for-3d-detection-from-point-cloud/image001.jpg">
 
@@ -157,10 +159,6 @@
     </header>
 
     
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
 
 
     <main class="main">
@@ -197,36 +195,50 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-01-05 22:19:01 / Modified: 22:30:21" itemprop="dateCreated datePublished" datetime="2021-01-05T22:19:01+08:00">2021-01-05</time>
+              <time title="Created: 2021-01-05 22:19:01" itemprop="dateCreated datePublished" datetime="2021-01-05T22:19:01+08:00">2021-01-05</time>
             </span>
-
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-01-06 22:30:58" itemprop="dateModified" datetime="2021-01-06T22:30:58+08:00">2021-01-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%B8%89%E7%BB%B4%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" itemprop="url" rel="index"><span itemprop="name">-三维目标检测</span></a>
+                </span>
+            </span>
           <span class="post-time">
-            &nbsp; | &nbsp;
-          <span class="post-meta-item-icon">
-            <i class="fa fa-calendar-o"></i>
-          </span>
-          <span class="post-meta-item-text">字数统计:</span>
-          <span class="post-count">1.7k(字)</span>
-          </span>
+  &nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+  <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">字数统计:</span>
+<span class="post-count">1.8k(字)</span>
+</span>
 
-          <span class="post-time">
-            &nbsp; | &nbsp;
-          <span class="post-meta-item-icon">
-          <i class="fa fa-calendar-o"></i>
-          </span>
-          <span class="post-meta-item-text">阅读时长≈</span>
-          <span class="post-count">6(分)</span>
-          </span>
+<span class="post-time">
+  &nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+<i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">阅读时长≈</span>
+<span class="post-count">6(分)</span>
+</span>
 
           
-            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+            <span id="/2021/01/05/sparse-voxel-graph-attention-network-for-3d-detection-from-point-cloud/" class="post-meta-item leancloud_visitors" data-flag-title="sparse voxel-graph attention network for 3d detection from point cloud" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">Views: </span>
-              <span id="busuanzi_value_page_pv"></span>
+              <span class="leancloud-visitors-count"></span>
             </span>
 
         </div>
@@ -238,14 +250,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="Authors"><a href="#Authors" class="headerlink" title="Authors:"></a><strong>Authors:</strong></h3><p>Qing dong He, Zhengning Wang*, Hao Zeng, Yi Zheng, Shuaicheng Liu, Bing Zeng<br>University of electronic science and technology of china<br>Chengdu china 中国电子科技大学</p>
+        <p>本文提出一种端到端可训练的3d物体检测网络，其中，点云用graph表示，不用再转换为其他的形式。</p>
+<a id="more"></a>
+
+<h3 id="Authors"><a href="#Authors" class="headerlink" title="Authors:**"></a>Authors:**</h3><p>Qing dong He, Zhengning Wang*, Hao Zeng, Yi Zheng, Shuaicheng Liu, Bing Zeng<br>University of electronic science and technology of china<br>Chengdu china 中国电子科技大学</p>
 <h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a><strong>Abstract</strong></h3><p>点云的精确三维物体检测在自动驾驶领域已经成为重要的组成部分。但是，基于volumetric的表示方法和投影的方法不能建立起局部点之间的关系。</p>
 <p>因此，我们提出Sparse voxel graph attention network（SVGANet），一个新的端到端的回归模块，实现comparable的raw的point cloud 的三维检测。</p>
 <p>特别地，SVGA-Net在每一个分离的3d 球形voxel中建立local complete graph，并且对所有个voxels建立全局的KNN graph。</p>
 <p>除此之外，我们提出一种的新奇的sparse to dense的回归模块，通过在不同水平上聚合特征图，提高3d box的检测精度。</p>
 <p><strong>！！！ 在KITTI上的检测benchmark 说明了扩展三维物体检测到graph representation的检测效率，并且达到了decent的检测准确率。。。</strong></p>
-<a id="more"></a>
-
 <h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a><strong>Summary</strong></h3><p>文章的聚焦点有两个，一个是目前还没有人用graph net的方法来做3d detection，surprisingly**(<strong>**普通人写这个的话，估计会说，别人不做是因为没有价值，不行，！！！一切皆有可能，不要否定自己的想法）</strong></p>
 <p>第二个是pointset中还没有人利用local feature 的relationship，之前的方法也没有用过attention mechanism。</p>
 <p>因此，本文提出一种，sparse voxel-graph attention network，分为两个module，the first is voxel-graph network module，主要是用于提取point-wise的feature，与原有方法相比，所提的方法聚合了local和global的feature。The second module 是sparse to dense regression module，预测category和3d bounding box。</p>
@@ -297,19 +310,11 @@
     
     
     
-    <div>
-  
-    <div>
-    
-        <div style="text-align:center;color: #555;font-size:14px;">-------------------凡是过往 <i class="fa fa-heart"></i> 皆为序章-------------------</div>
-    
-</div>
-  
-    </div>
 
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/paper-reading/" rel="tag"># -paper reading</a>
+              <a href="/tags/3d-detection/" rel="tag"># -3d detection</a>
           </div>
 
         
@@ -380,7 +385,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Authors"><span class="nav-number">1.</span> <span class="nav-text">Authors:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Abstract"><span class="nav-number">2.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary"><span class="nav-number">3.</span> <span class="nav-text">Summary</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Related-Works"><span class="nav-number">3.1.</span> <span class="nav-text">Related Works</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%AF%E7%A4%BA"><span class="nav-number">3.2.</span> <span class="nav-text">启示**:**</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Method"><span class="nav-number">4.</span> <span class="nav-text">Method</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Voxel-graph-network-architecture"><span class="nav-number">4.1.</span> <span class="nav-text">Voxel-graph network architecture</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sparse-to-dense-regression-module"><span class="nav-number">4.2.</span> <span class="nav-text">Sparse to dense regression module</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Loss-function"><span class="nav-number">5.</span> <span class="nav-text">Loss function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Results"><span class="nav-number">6.</span> <span class="nav-text">Results</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E7%A4%BA%EF%BC%9A"><span class="nav-number">7.</span> <span class="nav-text">启示：</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Authors"><span class="nav-number">1.</span> <span class="nav-text">Authors:**</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Abstract"><span class="nav-number">2.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary"><span class="nav-number">3.</span> <span class="nav-text">Summary</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Related-Works"><span class="nav-number">3.1.</span> <span class="nav-text">Related Works</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%AF%E7%A4%BA"><span class="nav-number">3.2.</span> <span class="nav-text">启示**:**</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Method"><span class="nav-number">4.</span> <span class="nav-text">Method</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Voxel-graph-network-architecture"><span class="nav-number">4.1.</span> <span class="nav-text">Voxel-graph network architecture</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sparse-to-dense-regression-module"><span class="nav-number">4.2.</span> <span class="nav-text">Sparse to dense regression module</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Loss-function"><span class="nav-number">5.</span> <span class="nav-text">Loss function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Results"><span class="nav-number">6.</span> <span class="nav-text">Results</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E7%A4%BA%EF%BC%9A"><span class="nav-number">7.</span> <span class="nav-text">启示：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -398,10 +403,16 @@
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -410,6 +421,10 @@
 
 
       </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
 
     </div>
   </aside>
@@ -423,34 +438,7 @@
       <div class="footer-inner">
         
 
-        <span>本站已运行<span id="showDays"></span></span>
-<script>
-  var seconds = 1000;
-  var minutes = seconds * 60;
-  var hours = minutes * 60;
-  var days = hours * 24;
-  var years = days * 365;
-  var birthDay = Date.UTC(2020,08,01,14,00,00); // 这里设置建站时间
-  setInterval(function() {
-    var today = new Date();
-    var todayYear = today.getFullYear();
-    var todayMonth = today.getMonth()+1;
-    var todayDate = today.getDate();
-    var todayHour = today.getHours();
-    var todayMinute = today.getMinutes();
-    var todaySecond = today.getSeconds();
-    var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
-    var diff = now - birthDay;
-    var diffYears = Math.floor(diff/years);
-    var diffDays = Math.floor((diff/days)-diffYears*365);
-    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
-    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
-    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
-      document.getElementById('showDays').innerHTML=""+diffYears+"年"+diffDays+"天"+diffHours+"小时"+diffMinutes+"分钟"+diffSeconds+"秒";
-  }, 1000);
-</script>
-
-<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.ejs"></script>
 
 <div class="copyright">
   
@@ -483,35 +471,132 @@
 	<span class="post-count">博客全站共 11.6k 字</span>
 </div>
 	
+ 
 
-
+<span>本站已运行<span id="showDays"></span></span>
+<script>
+  var seconds = 1000;
+  var minutes = seconds * 60;
+  var hours = minutes * 60;
+  var days = hours * 24;
+  var years = days * 365;
+  var birthDay = Date.UTC(2019,08,01,14,00,00); // 这里设置建站时间
+  setInterval(function() {
+    var today = new Date();
+    var todayYear = today.getFullYear();
+    var todayMonth = today.getMonth()+1;
+    var todayDate = today.getDate();
+    var todayHour = today.getHours();
+    var todayMinute = today.getMinutes();
+    var todaySecond = today.getSeconds();
+    var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+    var diff = now - birthDay;
+    var diffYears = Math.floor(diff/years);
+    var diffDays = Math.floor((diff/days)-diffYears*365);
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+      document.getElementById('showDays').innerHTML=""+diffYears+"年"+diffDays+"天"+diffHours+"小时"+diffMinutes+"分钟"+diffSeconds+"秒";
+  }, 1000);
+</script>
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="Total Visitors">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="Total Views">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
 
 
 
 
 
 
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":null,"app_key":null,"server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
 
 
       </div>
@@ -520,8 +605,10 @@
 
   
   
-  <script color='255,255,255' opacity='1' zIndex='-1' count='120' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script color='125,125,125' opacity='1' zIndex='-1' count='120' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
@@ -562,5 +649,7 @@
 
   
 
+ <!-- 页面点击礼花效果 -->
+<script type="text/javascript" src="/js/firework.js"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"live2d-widget-model-wanko"},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
 </html>
