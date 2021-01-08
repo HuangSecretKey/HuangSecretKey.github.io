@@ -1,10 +1,15 @@
 ---
 title: sparse voxel-graph attention network for 3d detection from point cloud
 date: 2021-01-05 22:19:01
-tags: -paper reading
+tags: [-paper reading, -3d detection]
+categories: -三维目标检测
 ---
 
-### **Authors:**
+本文提出一种端到端可训练的3d物体检测网络，其中，点云用graph表示，不用再转换为其他的形式。
+
+<!--more-->
+
+### Authors:**
 
 Qing dong He, Zhengning Wang*, Hao Zeng, Yi Zheng, Shuaicheng Liu, Bing Zeng
 University of electronic science and technology of china
@@ -22,7 +27,6 @@ Chengdu china 中国电子科技大学
 除此之外，我们提出一种的新奇的sparse to dense的回归模块，通过在不同水平上聚合特征图，提高3d box的检测精度。
 
 **！！！ 在KITTI上的检测benchmark 说明了扩展三维物体检测到graph representation的检测效率，并且达到了decent的检测准确率。。。**
-<!--more-->
 
 ### **Summary**
 
