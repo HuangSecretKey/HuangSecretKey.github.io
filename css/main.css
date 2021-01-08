@@ -1195,7 +1195,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffff90;
+  background: #0aad5c;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2456,4 +2456,10 @@ ul.breadcrumb li + li:last-child {
 }
 .back-to-top.back-to-top-on {
   margin-top: 16px;
+}
+body {
+  background: url("/images/trees.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
 }
