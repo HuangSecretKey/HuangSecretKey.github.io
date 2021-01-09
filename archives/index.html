@@ -597,7 +597,7 @@
         });
     }
 
-    let { app_id, app_key, server_url } = {"enable":true,"app_id":"3ufHp7Im6f865HLpqjyNydgQ-gzGzoHsz","app_key":"yRbueXl8QhUbS2hMBG077cz3","server_url":null,"security":true};
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"3ufHp7Im6f865HLpqjyNydgQ-gzGzoHsz","app_key":"yRbueXl8QhUbS2hMBG077cz3","server_url":"https://3ufhp7im.lc-cn-n1-shared.com","security":true};
     function fetchData(api_server) {
       var Counter = (method, url, data) => {
         return fetch(`${api_server}/1.1${url}`, {
@@ -682,6 +682,35 @@
   
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '3ufHp7Im6f865HLpqjyNydgQ-gzGzoHsz',
+      appKey     : 'yRbueXl8QhUbS2hMBG077cz3',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
 
  <!-- 页面点击礼花效果 -->
 <script type="text/javascript" src="/js/firework.js"></script>
