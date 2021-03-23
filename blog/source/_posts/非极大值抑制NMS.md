@@ -1,7 +1,7 @@
 ---
 title: 非极大值抑制NMS
 date: 2021-01-12 20:03:35
-tags: -深度学习
+tags: [-深度学习,-pytorch,-IoU]
 categories: -深度学习tricks
 ---
 

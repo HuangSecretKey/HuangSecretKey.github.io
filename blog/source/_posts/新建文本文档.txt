@@ -1,0 +1,20 @@
+今天突然chrome登不上GitHub,一直出现响应时间过长的问题,如下:
+
+
+
+ 
+
+ 
+
+开始还以为是GitHub服务器出问题了(虽然概率很小.....),但这种情况一直持续了几个小时,我才意识到应该是自己电脑的问题,经过我的搜索,发现了解决方法:
+
+1.访问http://www.github.com.ipaddress.com/, 查看GitHub的ip地址
+
+2.在hosts文件中增加一行(注意,前面的是上面查到的ip地址,不要照着我的写,要改成查到的)
+
+140.82.113.3   github.com
+windows下hosts文件的路径为: C:\Windows\System32\drivers\etc\
+
+3,如果在保存hosts文件时没有权限,需要按照下面这篇文章的步骤获取修改hosts文件的权限
+
+https://jingyan.baidu.com/article/624e7459b194f134e8ba5a8e.html

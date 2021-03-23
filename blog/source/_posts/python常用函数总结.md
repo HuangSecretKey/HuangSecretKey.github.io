@@ -7,6 +7,7 @@ categories: -函数总结
 
 用于总结代码学习中的函数等，持续更新中...
 <!--more-->
+[TOC]
 
 ## permute函数的用法
 ### permute(dims)
@@ -75,3 +76,82 @@ tensor([[[1,2],
         [3,4],
         [5,6]]])
 ```
+
+## numpy tolist()的用法
+1.将数组或者矩阵转换为列表
+
+```
+>>> from numpy import *
+>>> a1 = [[1,2,3],[4,5,6]] # a1是列表
+>>> a2 = array(a1) # 列表——>数组
+>>> a2
+array([[1, 2, 3],
+       [4, 5, 6]])
+>>> a3 = mat(a1) # 列表——>矩阵
+>>> a3
+matrix([[1, 2, 3],
+        [4, 5, 6]])
+>>> a4 = a2.tolist()  # 数组——>列表
+>>> a4
+[[1, 2, 3], [4, 5, 6]]
+>>> a5 = a3.tolist()  # 矩阵——>列表
+>>> a5
+[[1, 2, 3], [4, 5, 6]]
+>>> a4 == a5 
+True
+>>> a6 = mat(a2)   # 数组--> 矩阵
+>>> a6
+matrix([[1, 2, 3],
+        [4, 5, 6]])
+>>> a6 == a3
+matrix([[ True,  True,  True],
+        [ True,  True,  True]], dtype=bool)
+>>> a7 = array(a3)  # 矩阵--> 数组 
+>>> a7
+array([[1, 2, 3],
+       [4, 5, 6]])
+>>> a7 == a2
+array([[ True,  True,  True],
+       [ True,  True,  True]], dtype=bool)
+>>> 
+```
+2.当矩阵或数组是一维时，有所不同，需要利用tolist()[0]
+```
+>>> a1 =[1,2,3,4,5,6] # 列表
+>>> a2 = array(a1)   # 列表 --> 数组 
+>>> a2
+array([1, 2, 3, 4, 5, 6])
+>>> a3 = mat(a1)      #列表 ----> 矩阵
+>>> a3
+matrix([[1, 2, 3, 4, 5, 6]])
+>>> a4 = a3.tolist()   #矩阵 ---> 列表
+>>> a4
+[[1, 2, 3, 4, 5, 6]]  # 注意！！有不同  
+>>> a1 == a4
+False
+>>> a8 = a3.tolist()[0]   #矩阵 ---> 列表  
+>>> a8
+[1, 2, 3, 4, 5, 6]  # 注意！！有不同 
+>>> a1 == a8
+True
+>>> a5 = a2.tolist()   # 数组 ---> 列表
+>>> a5
+[1, 2, 3, 4, 5, 6]
+>>> a5 == a1
+True
+>>> a6 = mat(a2)   # 数组 ---> 矩阵  
+>>> a6
+matrix([[1, 2, 3, 4, 5, 6]])
+>>> a6 == a3
+matrix([[ True,  True,  True,  True,  True,  True]], dtype=bool)
+>>> a7 = array(a3)  # 矩阵 ---> 数组 
+>>> a7
+array([[1, 2, 3, 4, 5, 6]])
+>>> a7 == a2
+array([[ True,  True,  True,  True,  True,  True]], dtype=bool)
+>>> 
+```
+## np.max(), np.maximum(), np.argmax()区别
+np.max(): 接受一个参数，返回数组中的最大值
+np.argmax(): 接受一个参数，返回数组中最大值对应的索引
+np.maximum():接受两个参数，对应数学中的max操作。
