@@ -31,7 +31,7 @@
 <meta property="og:description" content="平常科研当中，当我们在看文献时，每看到一个优秀的算法时都有想要自己动手编程去实现的愿望，算法好坏可以用代码的运行时间来评估，在MATLAB中大致有以下几种方法来计算程序的运行时间：">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-12-15T13:04:48.000Z">
-<meta property="article:modified_time" content="2021-01-04T13:35:20.555Z">
+<meta property="article:modified_time" content="2021-06-23T13:16:35.941Z">
 <meta property="article:tag" content="-matlab">
 <meta name="twitter:card" content="summary">
 
@@ -204,7 +204,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-04 21:35:20" itemprop="dateModified" datetime="2021-01-04T21:35:20+08:00">2021-01-04</time>
+                <time title="修改时间：2021-06-23 21:16:35" itemprop="dateModified" datetime="2021-06-23T21:16:35+08:00">2021-06-23</time>
               </span>
           
           <span class="post-time">
@@ -213,7 +213,7 @@
   <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">字数统计:</span>
-<span class="post-count">284(字)</span>
+<span class="post-count">1.4k(字)</span>
 </span>
 
 <span class="post-time">
@@ -222,7 +222,7 @@
 <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">阅读时长≈</span>
-<span class="post-count">1(分)</span>
+<span class="post-count">6(分)</span>
 </span>
  &nbsp; | &nbsp;
          
@@ -256,13 +256,13 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>537</span>
+              <span>3.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span> --> 
 
         </div>
@@ -287,7 +287,12 @@
 
 <p>上以上三种方法，都是可以进行程序运行时间的计算，但是Matlab官方推荐使用tic，toc组合。但是使用tic/toc的时候一定要注意，toc计算的是与最后一次（即离它最近）运行的tic之间的时间。</p>
 <p>参考：<a target="_blank" rel="noopener" href="http://www.matlabsky.com/thread-2607-1-1.html?_dsign=33d7d995">http://www.matlabsky.com/thread-2607-1-1.html?_dsign=33d7d995</a></p>
-
+<h3 id="4、matlab保留小数特定位数"><a href="#4、matlab保留小数特定位数" class="headerlink" title="4、matlab保留小数特定位数"></a>4、matlab保留小数特定位数</h3><p>a=1.23456789</p>
+<p>b = vpa(a, 7)</p>
+<p>b = 1.234568</p>
+<p>format:设置输出格式</p>
+<p>对浮点性变量，缺省为format short</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line">对浮点性变量，缺省为format short.</span><br><span class="line">format并不影响matlab如何计算和存储变量的值。对浮点型变量的计算，即单精度或双精度，按合适的浮点精度进行，而不论变量是如何显示的。对整型变量采用整型数据。整型变量总是根据不同的类（class）以合适的数据位显示，例如，3位数字显示显示int8范围 -128：127。format short, long不影响整型变量的显示。</span><br><span class="line">format long 显示15位双精度，7为单精度（scaled fixed point）</span><br><span class="line">format short 显示5位(scaled fixed point format with 5 digits)</span><br><span class="line">format short eng   至少5位加3位指数</span><br><span class="line">format long eng  16位加至少3位指数</span><br><span class="line">format hex   十六进制</span><br><span class="line">format bank  2个十进制位</span><br><span class="line">format +     正、负或零</span><br><span class="line">format rat   有理数近似</span><br><span class="line">format short 缺省显示</span><br><span class="line">format long g  对双精度，显示15位定点或浮点格式，对单精度，显示7位定点或浮点格式。</span><br><span class="line">format short g  5位定点或浮点格式</span><br><span class="line">format short e  5位浮点格式</span><br><span class="line">format long e  双精度为15位浮点格式，单精度为7为浮点格式</span><br><span class="line"></span><br><span class="line">Matlab取整函数有: fix, floor, ceil, round.取整函数在编程时有很大用处。</span><br><span class="line"></span><br><span class="line">一、取整函数</span><br><span class="line"> 1.向零取整(截尾取整) </span><br><span class="line">fix-向零取整（Round towards zero）；</span><br><span class="line"> &gt;&gt; fix(3.6)   </span><br><span class="line"> ans &#x3D;      3 </span><br><span class="line">2.向负无穷取整(不超过x 的最大整数-高斯取整) </span><br><span class="line">floor-向负无穷取整（Round towards minus infinity）； </span><br><span class="line">&gt;&gt; floor(-3.6)   </span><br><span class="line">ans &#x3D;     -4 </span><br><span class="line">3.向正无穷取整(大于x 的最小整数) </span><br><span class="line">ceil-向正无穷取整（Round towards plus infinity）； </span><br><span class="line">&gt;&gt; ceil(-3.6)    </span><br><span class="line">ans &#x3D;     -3 </span><br><span class="line">4.向最近整数取整，四舍五入(四舍五入取整) </span><br><span class="line">round-向最近整数取整，四舍五入（Round towards nearest integer）； </span><br><span class="line">&gt;&gt; round(3.5) </span><br><span class="line">ans &#x3D;      4   </span><br><span class="line">二、在小数点后某一位四舍五入,即保留几位小数,也经常用到。 </span><br><span class="line">1.数值型 roundn—任意位位置四舍五入 </span><br><span class="line">&gt;&gt;a&#x3D;123.4567890; </span><br><span class="line">&gt;&gt;a&#x3D;roundn(a,-4) </span><br><span class="line">a &#x3D;   123.4568 </span><br><span class="line">其中roundn函数功能如下：    </span><br><span class="line">y &#x3D; ROUNDN(x) rounds the input data x to the nearest hundredth.   %不指定n，精确到百分位 y &#x3D; ROUNDN(x,n) rounds the input data x at the specified power    %精确到小数点后指定位数n  </span><br><span class="line">2.符号型 </span><br><span class="line">digits(4) </span><br><span class="line">vpa(....) </span><br><span class="line">必须说明:vpa命令不能识别整数与小数,只算总位数,因此对它来说小数整数无论哪个都占一位,例如对9.3154保留两位小数时就得写成:</span><br><span class="line">&gt;&gt;a&#x3D;9.3154; </span><br><span class="line">&gt;&gt;digits(3) </span><br><span class="line">&gt;&gt;b&#x3D;vpa(a) </span><br><span class="line">b&#x3D;      9.32 </span><br><span class="line">其中b为符号型变量； </span><br><span class="line">3.字符型 </span><br><span class="line">&gt;&gt;a&#x3D;12.34567; </span><br><span class="line">&gt;&gt;b &#x3D; sprintf(&#39;%8.2f&#39;,a) </span><br><span class="line">b &#x3D;    12.35 其中b为字符型变量。 </span><br><span class="line">matlab文本输出</span><br><span class="line">两个函数：disp fprintf</span><br><span class="line">1、函数disp只带一个变量，他可以是自负矩阵或数值矩阵，要输出简单的文字信息，只需要用单引号将信息括起来:</span><br><span class="line">&gt;&gt;disp(‘my favorite color is red’);</span><br><span class="line">或者</span><br><span class="line">&gt;&gt;yourname&#x3D;input(‘enter your name’,’s’);</span><br><span class="line">&gt;&gt;disp([‘your name is’,youname]);</span><br><span class="line">例如&gt;&gt; yourname &#x3D; input(&#39;enter your name &#39;,&#39;s&#39;);</span><br><span class="line">enter your name panrq</span><br><span class="line">&gt;&gt; disp([&#39;your name is &#39;,yourname]);</span><br><span class="line">your name is panrq</span><br><span class="line">选择带数值变量值的文本信息时，需要用函数num2str将数值变量的类型转换字符型</span><br><span class="line">&gt;&gt; x&#x3D;98;</span><br><span class="line">&gt;&gt; outstring &#x3D; [&#39;x &#x3D; &#39;,num2str(x)];</span><br><span class="line">&gt;&gt; disp(outstring);</span><br><span class="line">x &#x3D; 98</span><br><span class="line">&gt;&gt;  disp([&#39;x &#x3D; &#39;,num2str(x)]);</span><br><span class="line">x &#x3D; 98</span><br><span class="line">disp函数只能带一个变量，表格中的各列需奥组合成一个矩阵，如下面的程序所示。</span><br><span class="line">&gt;&gt; x&#x3D;0:pi&#x2F;5:pi;y&#x3D;sin(x);</span><br><span class="line">&gt;&gt; disp([x&#39; y&#39;]);</span><br><span class="line">         0         0</span><br><span class="line">   0.6283    0.5878</span><br><span class="line">    1.2566    0.9511</span><br><span class="line">    1.8850    0.9511</span><br><span class="line">    2.5133    0.5878</span><br><span class="line">    3.1416    0.0000</span><br><span class="line">Format命令</span><br><span class="line">控制显示模式，直到下一个format出现前，这条format命令一直有效。</span><br><span class="line">&gt;&gt; x&#x3D;1.23456789;</span><br><span class="line">&gt;&gt; format short;disp(pi);</span><br><span class="line">3.1416</span><br><span class="line">&gt;&gt; format long;disp(pi);</span><br><span class="line">   3.141592653589793</span><br><span class="line">&gt;&gt; format short e;disp(pi);</span><br><span class="line">  3.1416e+000</span><br><span class="line">&gt;&gt; format +;disp(pi);</span><br><span class="line">&gt;&gt; format bank;disp(pi);</span><br><span class="line">          3.14</span><br><span class="line">2、函数fprintf</span><br><span class="line">fprintf(format);</span><br><span class="line">fprintf(format,variables);</span><br><span class="line">fprintf(fid,format,variables);</span><br><span class="line">例如：</span><br><span class="line">&gt;&gt; fprintf(&#39;i am concreten&#39;);</span><br><span class="line">i am concrete</span><br><span class="line">&gt;&gt; a&#x3D;3;b&#x3D;&#39;s&#39;;</span><br><span class="line">&gt;&gt; fprintf(&#39;this is a %d and %s n&#39;,a,b);</span><br><span class="line">this is a 3 and s</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -371,7 +376,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81tic%E5%92%8Ctoc%E7%BB%84%E5%90%88"><span class="nav-number">1.</span> <span class="nav-text">1、tic和toc组合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81etime-%E4%B8%8Eclock%E7%BB%84%E5%90%88"><span class="nav-number">2.</span> <span class="nav-text">2、etime()与clock组合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81cputime%E5%87%BD%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">3、cputime函数</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81tic%E5%92%8Ctoc%E7%BB%84%E5%90%88"><span class="nav-number">1.</span> <span class="nav-text">1、tic和toc组合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81etime-%E4%B8%8Eclock%E7%BB%84%E5%90%88"><span class="nav-number">2.</span> <span class="nav-text">2、etime()与clock组合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81cputime%E5%87%BD%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">3、cputime函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81matlab%E4%BF%9D%E7%95%99%E5%B0%8F%E6%95%B0%E7%89%B9%E5%AE%9A%E4%BD%8D%E6%95%B0"><span class="nav-number">4.</span> <span class="nav-text">4、matlab保留小数特定位数</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -443,12 +448,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">276k</span>
+    <span title="站点总字数">279k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:11</span>
+    <span title="站点阅读时长">4:14</span>
 </div>
 
 <!--
@@ -504,7 +509,7 @@
 	
 	<!-- 添加博客全站总字数统计-->
 	<i class="fa fa-pencil"></i>
-	<span class="post-count">博客全站共 102.8k 字</span>
+	<span class="post-count">博客全站共 103.9k 字</span>
 </div>
 	
 
