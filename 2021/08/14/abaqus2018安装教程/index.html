@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-bounce.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="本文为转载文章，具体链接已放在最后">
+<meta property="og:type" content="article">
+<meta property="og:title" content="abaqus2018安装教程">
+<meta property="og:url" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="佟冬冬的博客">
+<meta property="og:description" content="本文为转载文章，具体链接已放在最后">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/1.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/2.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/3.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/4.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/5.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/6.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/7.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/8.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/9.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/10.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/11.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/12.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/13.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/14.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/15.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/16.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/17.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/18.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/19.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/20.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/21.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/22.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/23.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/24.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/25.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/26.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/27.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/28.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/29.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/30.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/31.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/32.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/33.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/34.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/35.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/36.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/37.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/38.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/39.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/40.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/41.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/42.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/43.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/44.png">
+<meta property="og:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/45.png">
+<meta property="article:published_time" content="2021-08-14T07:39:51.000Z">
+<meta property="article:modified_time" content="2021-08-14T08:08:03.091Z">
+<meta property="article:tag" content="-abaqus">
+<meta property="article:tag" content="-教程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/assets/1.png">
+
+<link rel="canonical" href="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>abaqus2018安装教程 | 佟冬冬的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+    <a target="_blank" rel="noopener" href="https://github.com/HuangSecretKey" 
+  class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; 
+  color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+  <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z">
+  </path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,
+  72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" 
+  style="transform-origin: 130px 106px;" class="octo-arm"></path>
+  <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,
+  74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,
+  58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,
+  96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,
+  136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+  </svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">佟冬冬的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">秣马厉兵莫懈怠，重整行装踏征途</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="凡是过往，皆为序章">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="佟冬冬的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          abaqus2018安装教程
+        </h1>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-08-14 15:39:51 / 修改时间：16:08:03" itemprop="dateCreated datePublished" datetime="2021-08-14T15:39:51+08:00">2021-08-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/abaqus/" itemprop="url" rel="index"><span itemprop="name">abaqus</span></a>
+                </span>
+            </span>
+          
+          <span class="post-time">
+  &nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+  <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">字数统计:</span>
+<span class="post-count">1.7k(字)</span>
+</span>
+
+<span class="post-time">
+  &nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+<i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">阅读时长≈</span>
+<span class="post-count">5(分)</span>
+</span>
+ &nbsp; | &nbsp;
+         
+            <span id="/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" class="post-meta-item leancloud_visitors" data-flag-title="abaqus2018安装教程" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+          <!-- 
+   -->
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/08/14/abaqus2018%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+         <!--<br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>2.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>3 分钟</span>
+            </span> --> 
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>本文为转载文章，具体链接已放在最后</p>
+<a id="more"></a>
+
+<p>下面开始安装。</p>
+<hr>
+<h1 id="安装准备"><a href="#安装准备" class="headerlink" title="安装准备"></a>安装准备</h1><p>1.下载安装包Abaqus2018.zip。</p>
+<p>2.解压缩至文件夹Abaqus2018，该文件夹下含有一个文件夹abaqus 2018和一个文件Read Me.txt。</p>
+<p><img src="assets/1.png" alt="img1"></p>
+<p>解压后的文件夹</p>
+<p>abaqus 2018文件夹下有我们需要的安装程序和破解程序。</p>
+<p><img src="assets/2.png" alt="img2"></p>
+<p>安装和破解程序文件夹</p>
+<p>3.新建安装文件夹Abaqus以安装程序。</p>
+<h4 id="为了很好的区分解压缩文件夹和安装文件夹，我这里用不同的名字表示，Abaqus2018是解压缩文件夹，Abaqus是安装文件夹。Abaqus2018文件夹是从zip压缩包里面解压出来的，Abaqus是即将要安装程序的位置，现在是空的。"><a href="#为了很好的区分解压缩文件夹和安装文件夹，我这里用不同的名字表示，Abaqus2018是解压缩文件夹，Abaqus是安装文件夹。Abaqus2018文件夹是从zip压缩包里面解压出来的，Abaqus是即将要安装程序的位置，现在是空的。" class="headerlink" title="为了很好的区分解压缩文件夹和安装文件夹，我这里用不同的名字表示，Abaqus2018是解压缩文件夹，Abaqus是安装文件夹。Abaqus2018文件夹是从zip压缩包里面解压出来的，Abaqus是即将要安装程序的位置，现在是空的。"></a><em>为了很好的区分解压缩文件夹和安装文件夹，我这里用不同的名字表示，Abaqus2018是解压缩文件夹，Abaqus是安装文件夹。Abaqus2018文件夹是从zip压缩包里面解压出来的，Abaqus是即将要安装程序的位置，现在是空的。</em></h4><hr>
+<h1 id="安装本地服务器"><a href="#安装本地服务器" class="headerlink" title="安装本地服务器"></a>安装本地服务器</h1><p>1.找到<em>Abaqus2018\abaqus 2018\破解文件_SolidSQUAD_\SSQ\SolidSQUAD_License_Servers</em>文件夹，将其复制到Abaqus文件夹下。</p>
+<p><img src="assets/3.png" alt="img3"></p>
+<p>复制SolidSQUAD_License_Servers文件夹</p>
+<p>2.找到<em>Abaqus2018\abaqus 2018\破解文件_SolidSQUAD_\Vendors</em>文件夹并将其复制到<em>Abaqus\SolidSQUAD_License_Servers</em>文件夹下</p>
+<p><img src="assets/4.png" alt="img4"></p>
+<p>复制Vendors文件夹</p>
+<p>期间会提示确认文件夹替换，点击“是”即可。</p>
+<p><img src="assets/5.png" alt="img5"></p>
+<p>确认文件夹替换</p>
+<p>3.在<em>Abaqus\SolidSQUAD_License_Servers</em>文件夹下找到install_or_update.bat文件，右击以管理员权限运行。</p>
+<p><img src="assets/6.png" alt="img6"></p>
+<p>以管理员权限运行install_or_update.bat文件</p>
+<p>看到以下界面，就ok了。</p>
+<p><img src="assets/7.png" alt="img7"></p>
+<p>本地服务器安装成功啦</p>
+<hr>
+<h1 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h1><p>新建系统变量NOLICENSECHECK，并设置其值为true。</p>
+<p><img src="assets/8.png" alt="img8"></p>
+<p>设置环境变量</p>
+<hr>
+<h1 id="安装程序"><a href="#安装程序" class="headerlink" title="安装程序"></a>安装程序</h1><p>1.以管理员权限运行<em>Abaqus2018\abaqus 2018\DS.SIMULIA.SUITE.2018.WIN64\1\setup.exe</em></p>
+<p><img src="assets/9.png" alt="img9"></p>
+<p>管理员权限运行setup.exe</p>
+<p>由于只涉及到Abaqus，所以其他的就先不装了，后期需要安装的，自行去<em>Abaqus2018\abaqus 2018\DS.SIMULIA.SUITE.2018.WIN64\2</em>文件夹下安装。</p>
+<h3 id="看好下图中安装的，按住Ctrl并左击选择或取消选择。"><a href="#看好下图中安装的，按住Ctrl并左击选择或取消选择。" class="headerlink" title="看好下图中安装的，按住Ctrl并左击选择或取消选择。"></a><em>看好下图中安装的，按住Ctrl并左击选择或取消选择。</em></h3><p><img src="assets/10.png" alt="img10"></p>
+<p>只装这4个，看好是哪4个</p>
+<p>选好之后点击“下一步”。</p>
+<p>2.在弹出的对话框中安装Product Documentation，因为安装的是Product Documentation，所以我这里安装在Abaqus\Documentation目录下，Documentation文件夹自己新建。然后下一步。</p>
+<p><img src="assets/11.png" alt="img11"></p>
+<p>安装Product Documentation</p>
+<p>考虑到后期会加装插件，所以这里把文档全部安装，直接下一步。</p>
+<p><img src="assets/12.png" alt="img12"></p>
+<p>安装的文档</p>
+<p>确认安装信息，然后安装。<del>（我这边可能多一个安装标识，因为之前安装过一次，为了写这个教程，卸载重装了，所以会有安装标识以区分）</del></p>
+<p><img src="assets/13.png" alt="img13"></p>
+<p>确认安装信息</p>
+<p>等待安装成功即可。</p>
+<p><img src="assets/14.png" alt="img14"></p>
+<p>等待安装成功</p>
+<p>安装成功点击关闭。</p>
+<p><img src="assets/15.png" alt="img15"></p>
+<p>安装后关闭</p>
+<p>3.在弹出的对话框中安装SimulationServices，因为安装的是SimulationServices，所以我这里安装在Abaqus\SimulationServices\V6R2018x目录下，SimulationServices和V6R2018x目录可自己新建，也可直接修改给定的默认目录为自己的安装文件夹。然后下一步。</p>
+<p><img src="assets/16.png" alt="img16"></p>
+<p>选择安装的目录</p>
+<p>选择安装的部件，这里全选，直接下一步。</p>
+<p><img src="assets/17.png" alt="img17"></p>
+<p>即将安装的部件</p>
+<p>确认安装后，直接安装。</p>
+<p><img src="assets/18.png" alt="img18"></p>
+<p>确认安装，点击安装</p>
+<p>等待安装成功。</p>
+<p><img src="assets/19.png" alt="img19"></p>
+<p>等待安装成功</p>
+<p>安装成功后关闭。</p>
+<p><img src="assets/20.png" alt="img20"></p>
+<p>关闭即可</p>
+<p>4.在弹出的对话框中安装CAA API，由于前面已经装好了SimulationServices，系统会自动找到SimulationServices，直接下一步即可。</p>
+<p><img src="assets/21.png" alt="img21"></p>
+<p>直接下一步</p>
+<p>选择需要安装的部件，这里全选，直接下一步。</p>
+<p><img src="assets/22.png" alt="img22"></p>
+<p>全选需要安装的部件</p>
+<p>确认部件以安装，点击安装即可。</p>
+<p><img src="assets/23.png" alt="img23"></p>
+<p>确认部件以安装</p>
+<p>等待安装成功。</p>
+<p><img src="assets/24.png" alt="img24"></p>
+<p>等待安装成功</p>
+<p>安装成功后关闭。</p>
+<p><img src="assets/25.png" alt="img25"></p>
+<p>关闭就行了</p>
+<p>5.在弹出的对话框中安装CAE，我这边选择安装到Abaqus\SIMULIA\CAE\2018，SIMULIA、CAE和2018这几个目录可以自己新建，也可直接修改给定的默认目录为自己的安装文件夹。然后下一步。</p>
+<p><img src="assets/26.png" alt="img26"></p>
+<p>安装CAE的目录</p>
+<p>在接下来的对话框中选择第一项，然后下一步。</p>
+<p><img src="assets/27.png" alt="img27"></p>
+<p>选择FLEXnet</p>
+<p>在License Server 1的文本框中输入：27800@localhost，这里的localhost为你的计算机名称，计算机名称去计算机的属性里面找。我这边是27800@PC-20180927BAPT，然后下一步。</p>
+<p><img src="assets/28.png" alt="img28"></p>
+<p>输入License Server 1</p>
+<p>自动识别SimulationServices的路径，直接下一步即可。</p>
+<p><img src="assets/29.png" alt="img29"></p>
+<p>自动识别SimulationServices  ，下一步</p>
+<p>为了目录的统一，我把Commands安装到之前设置好的\SIMULIA文件夹下。如下图所示。然后下一步。</p>
+<p><img src="assets/30.png" alt="img30"></p>
+<p>Commands安装目录</p>
+<p>接下来是plugins的安装，为了目录统一，还是安装到之前的SIMULIA\CAE\plugins\2018目录下。如下图所示。然后下一步。</p>
+<p><img src="assets/31.png" alt="img31"></p>
+<p>plugins的安装目录</p>
+<p>接下来选择第一个就可以。然后下一步。</p>
+<p><img src="assets/32.png" alt="img32"></p>
+<p>选择第一个，然后下一步</p>
+<p>为了目录统一，安装到Abaqus\temp下，如下图所示。然后下一步。</p>
+<p><img src="assets/33.png" alt="img33"></p>
+<p>安装工作目录</p>
+<p>确认安装信息以安装。</p>
+<p><img src="assets/34.png" alt="img34"></p>
+<p>确认安装信息并安装</p>
+<p>等待安装成功。</p>
+<p><img src="assets/35.png" alt="img35"></p>
+<p>等待安装成功</p>
+<p><img src="assets/36.png" alt="img35"></p>
+<p>还是等待安装成功</p>
+<p>期间会弹出防火墙的提醒，放行就行。然后就会有验证结果。Continue</p>
+<p><img src="assets/37.png" alt="img37"></p>
+<p>验证结果</p>
+<p>安装成功后关闭就行。</p>
+<p><img src="assets/38.png" alt="img38"></p>
+<p>成功后关闭</p>
+<p>至此，已经全部安装完成啦。关闭即可。</p>
+<p><img src="assets/39.png" alt="img39"></p>
+<p>全部安装完成</p>
+<hr>
+<h1 id="验证安装"><a href="#验证安装" class="headerlink" title="验证安装"></a>验证安装</h1><p>找到安装的Abaqus</p>
+<p><img src="assets/40.png" alt="img40"></p>
+<p>找到程序</p>
+<p>然后打开，会有CMD窗口，不用管它就行。</p>
+<p><img src="assets/41.png" alt="img41"></p>
+<p>不用管这个窗口</p>
+<p>然后就是我们需要用到的软件啦。</p>
+<p><img src="assets/42.png" alt="img42"></p>
+<p>Abaqus启动界面</p>
+<p>尽情享用吧！！！</p>
+<p>（PS：可以把解压缩的文件夹Abaqus2018删除）</p>
+<hr>
+<hr>
+<h4 id="说在最后"><a href="#说在最后" class="headerlink" title="说在最后"></a>说在最后</h4><p>本人非土木专业，土木专业的同学看到本教程后，如有技术和学术上的错误，欢迎指正。</p>
+<h3 id="说在最最后"><a href="#说在最最后" class="headerlink" title="说在最最后"></a>说在最最后</h3><p>此安装教程仅是对<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://weibo.com/u/5017031009">博哥</a>师弟师妹的演示，这里不提供安装介质及相关文件，如有需要请找周旦娜同学。</p>
+<h2 id="说在最最最后"><a href="#说在最最最后" class="headerlink" title="说在最最最后"></a>说在最最最后</h2><p>如果你的资金允许，请支持正版。此版仅供学习使用。</p>
+<h1 id="说在最最最最后"><a href="#说在最最最最后" class="headerlink" title="说在最最最最后"></a>说在最最最最后</h1><p>如果你觉得这篇文章对你有用，请点赞并在微博上关注我吧。如果你有什么问题欢迎微博私信我。</p>
+<p>微博：<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=http://weibo.com/u/2461814297">@Wenchel</a></p>
+<hr>
+<h3 id="2019-10-28更新"><a href="#2019-10-28更新" class="headerlink" title="2019.10.28更新"></a>2019.10.28更新</h3><p>小明同学在安装后打不开，报以下错误。</p>
+<p><img src="assets/43.png" alt="img43"></p>
+<p>打开软件报错</p>
+<p>看错误是atio6axx.dll动态链接库引发的，去查找了一下atio6axx.dll，简介如下：</p>
+<p><img src="assets/44.png" alt="img44"></p>
+<p>  atio6axx.dll简介</p>
+<p>原来是显卡的问题，这台电脑是A卡，那我把A卡禁了，直接用集显就行了。</p>
+<p><img src="assets/45.png" alt="img45"></p>
+<p>禁用独显</p>
+<p>文章转载自<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/1cc8b661a36c">https://www.jianshu.com/p/1cc8b661a36c</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/abaqus/" <i class="fa fa-tag"></i> -abaqus</a>
+              <a href="/tags/%E6%95%99%E7%A8%8B/" <i class="fa fa-tag"></i> -教程</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/06/21/%E7%9B%9B%E5%A4%8F%E5%BD%93%E6%97%B6%EF%BC%8C%E9%9D%92%E6%98%A5/" rel="prev" title="盛夏当时，青春">
+      <i class="fa fa-chevron-left"></i> 盛夏当时，青春
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%87%86%E5%A4%87"><span class="nav-number">1.</span> <span class="nav-text">安装准备</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BA%E4%BA%86%E5%BE%88%E5%A5%BD%E7%9A%84%E5%8C%BA%E5%88%86%E8%A7%A3%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6%E5%A4%B9%E5%92%8C%E5%AE%89%E8%A3%85%E6%96%87%E4%BB%B6%E5%A4%B9%EF%BC%8C%E6%88%91%E8%BF%99%E9%87%8C%E7%94%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E5%90%8D%E5%AD%97%E8%A1%A8%E7%A4%BA%EF%BC%8CAbaqus2018%E6%98%AF%E8%A7%A3%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6%E5%A4%B9%EF%BC%8CAbaqus%E6%98%AF%E5%AE%89%E8%A3%85%E6%96%87%E4%BB%B6%E5%A4%B9%E3%80%82Abaqus2018%E6%96%87%E4%BB%B6%E5%A4%B9%E6%98%AF%E4%BB%8Ezip%E5%8E%8B%E7%BC%A9%E5%8C%85%E9%87%8C%E9%9D%A2%E8%A7%A3%E5%8E%8B%E5%87%BA%E6%9D%A5%E7%9A%84%EF%BC%8CAbaqus%E6%98%AF%E5%8D%B3%E5%B0%86%E8%A6%81%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F%E7%9A%84%E4%BD%8D%E7%BD%AE%EF%BC%8C%E7%8E%B0%E5%9C%A8%E6%98%AF%E7%A9%BA%E7%9A%84%E3%80%82"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">为了很好的区分解压缩文件夹和安装文件夹，我这里用不同的名字表示，Abaqus2018是解压缩文件夹，Abaqus是安装文件夹。Abaqus2018文件夹是从zip压缩包里面解压出来的，Abaqus是即将要安装程序的位置，现在是空的。</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">安装本地服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">3.</span> <span class="nav-text">设置环境变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F"><span class="nav-number">4.</span> <span class="nav-text">安装程序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9C%8B%E5%A5%BD%E4%B8%8B%E5%9B%BE%E4%B8%AD%E5%AE%89%E8%A3%85%E7%9A%84%EF%BC%8C%E6%8C%89%E4%BD%8FCtrl%E5%B9%B6%E5%B7%A6%E5%87%BB%E9%80%89%E6%8B%A9%E6%88%96%E5%8F%96%E6%B6%88%E9%80%89%E6%8B%A9%E3%80%82"><span class="nav-number">4.0.1.</span> <span class="nav-text">看好下图中安装的，按住Ctrl并左击选择或取消选择。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81%E5%AE%89%E8%A3%85"><span class="nav-number">5.</span> <span class="nav-text">验证安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B4%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="nav-number">5.0.0.1.</span> <span class="nav-text">说在最后</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%B4%E5%9C%A8%E6%9C%80%E6%9C%80%E5%90%8E"><span class="nav-number">5.0.1.</span> <span class="nav-text">说在最最后</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E5%9C%A8%E6%9C%80%E6%9C%80%E6%9C%80%E5%90%8E"><span class="nav-number">5.1.</span> <span class="nav-text">说在最最最后</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B4%E5%9C%A8%E6%9C%80%E6%9C%80%E6%9C%80%E6%9C%80%E5%90%8E"><span class="nav-number">6.</span> <span class="nav-text">说在最最最最后</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2019-10-28%E6%9B%B4%E6%96%B0"><span class="nav-number">6.0.1.</span> <span class="nav-text">2019.10.28更新</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt=""
+      src="/images/head.jpg">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description">凡是过往，皆为序章</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>-->
+<script src="/js/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">282k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:16</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>-->
+
+
+<span>本站已运行<span id="showDays"></span></span>
+<script>
+  var seconds = 1000;
+  var minutes = seconds * 60;
+  var hours = minutes * 60;
+  var days = hours * 24;
+  var years = days * 365;
+  var birthDay = Date.UTC(2020,08,01,14,00,00); // 这里设置建站时间
+  setInterval(function() {
+    var today = new Date();
+    var todayYear = today.getFullYear();
+    var todayMonth = today.getMonth()+1;
+    var todayDate = today.getDate();
+    var todayHour = today.getHours();
+    var todayMinute = today.getMinutes();
+    var todaySecond = today.getSeconds();
+    var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+    var diff = now - birthDay;
+    var diffYears = Math.floor(diff/years);
+    var diffDays = Math.floor((diff/days)-diffYears*365);
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+      document.getElementById('showDays').innerHTML=""+diffYears+"年"+diffDays+"天"+diffHours+"小时"+diffMinutes+"分钟"+diffSeconds+"秒";
+  }, 1000);
+</script>
+
+<!-- <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span> -->
+
+<!-- 不蒜字统计 -->
+<div>
+	<i class="fa fa-user-md"></i>
+	<span id="busuanzi_container_site_uv">
+	  访问人数：<span id="busuanzi_value_site_uv"></span>
+	</span>&nbsp;|&nbsp;
+	
+	<i class="fa fa-eye"></i>
+	<span id="busuanzi_container_site_pv">
+	  总访问量：<span id="busuanzi_value_site_pv"></span>
+	</span>&nbsp;|&nbsp;
+	
+	<!-- 添加博客全站总字数统计-->
+	<i class="fa fa-pencil"></i>
+	<span class="post-count">博客全站共 105.6k 字</span>
+</div>
+	
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='125,125,125' opacity='1' zIndex='-1' count='120' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/three-waves.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+    <script defer src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '3ufHp7Im6f865HLpqjyNydgQ-gzGzoHsz',
+      appKey     : 'yRbueXl8QhUbS2hMBG077cz3',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+ <!-- 页面点击礼花效果 -->
+<script type="text/javascript" src="/js/firework.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
+</html>
